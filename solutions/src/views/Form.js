@@ -119,7 +119,7 @@ export const Form = () => (
                     <div className={styles.row}>
                         <Field
                             required
-                            name="email-confirmation"
+                            name="confirm_email"
                             label="Confirm e-mail address"
                             component={InputFieldFF}
                             className={styles.email}
