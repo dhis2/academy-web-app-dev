@@ -7,6 +7,8 @@ import {
     createEqualTo,
     email,
     hasValue,
+    dhis2Password,
+    dhis2Username,
     ReactFinalForm,
 } from '@dhis2/ui'
 import React from 'react'
@@ -77,10 +79,39 @@ export const Form = () => (
                     <div className={styles.row}>
                         <Field
                             required
+                            name="username"
+                            label="Username"
+                            component={InputFieldFF}
+                            className={styles.email}
+                            validate={composeValidators(
+                                dhis2Username,
+                                hasValue
+                            )}
+                        />
+                    </div>
+
+                    <div className={styles.row}>
+                        <Field
+                            required
+                            name="password"
+                            label="Password"
+                            type="password"
+                            component={InputFieldFF}
+                            className={styles.password}
+                            validate={composeValidators(
+                                dhis2Password,
+                                hasValue
+                            )}
+                        />
+                    </div>
+
+                    <div className={styles.row}>
+                        <Field
+                            required
                             name="email"
                             label="E-mail address"
                             component={InputFieldFF}
-                            className={styles.email}
+                            className={styles.username}
                             validate={composeValidators(email, hasValue)}
                         />
                     </div>

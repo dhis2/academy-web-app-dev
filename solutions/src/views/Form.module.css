@@ -22,3 +22,11 @@
 .email {
     flex-grow: 1;
 }
+
+.username {
+    flex-grow: 1;
+}
+
+.password {
+    flex-grow: 1;
+}
