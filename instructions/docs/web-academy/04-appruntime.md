@@ -3,93 +3,97 @@ title: Day 3 | App Runtime
 sidebar_position: 50
 ---
 
-:::danger[work in progress]
-Owned and will be updated by **Mozafar**
-
-Content here is draft copy from 2022 workshop: https://github.com/dhis2/academy-web-app-dev-2022/tree/main/workshop/04-app-runtime
+:::tip[What you will learn]
+- [ ] An overview of the the App Platform and App Runtime toolset
+- [ ] The philoshopy behind AppRuntime hooks (imperative vs declarative)
+- [ ] Use Alerts and Config service
+- [ ] Use Data Service: Lookup specific APIs and convert the API requests into queries and mutations
+- [ ] Test queries and mutations in the playground
+- [ ] Use `useDataQuery` and `useDataMutation` hooks
+- [ ] Other advanced use cases for the Data Service hooks (dynamic queries, refetching, lazy mode etc..)
 :::
 
-## Workshop - App Runtime Task 1
 
-### Tasks
+## Presentation
 
-* Here you would need to write a query and define some parameters
+> _**instructor note**: We will go through the presentation in four parts: the AppRuntime overview and basic hooks, data queries, data mutations, advanced data queries._
 
-```js
-const query = {
-    results: {
-        // @TODO: Writa a query to show 5 indicators with their name and description
-    },
-}
-```
-* Finally, you would need to use that query defined above to render your data 👇
+<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSdtSEOUIBoql2XTrjEQPndvb6BAjnqcGiqhk841tZRivnTMNpn0PSFUEMElj1TK83hNsgGe811Qgjw/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-```js
-export const IndicatorsList = () => {
-    // @TODO: Replace this line with a hook to perform the above query!
-    const { loading, error, data } = { loading: false, error: 'Unimplemented', data: undefined }
-}
-```
-### Solution:
 
-* After you've completed these tasks, your application should look like this:
+## Overview and Basic hooks
 
+### Task 1.1 - useAlert
+:::info[Requirement]
+Replace the alert in the `Form` view with an [alert from the UI library](https://ui.dhis2.nu/components/alertbar) 
+::: 
+
+### Task 1.2 - useConfig
+:::info[Requirement]
+Get the DHIS2 configuration using [useConfig hook](https://developers.dhis2.org/docs/app-runtime/hooks/useConfig) and show it at the bottom of the side bar.
+::: 
+
+
+## Data Queries
+
+> _**instructor note**:  Overview of the API and how to convert an API request to a query, and demonstrate the [Query playground](https://runtime.dhis2.nu/playground/)._
+
+### Task 2.1 - useDataQuery
+
+:::info[Requirement]
+Replace the _hardcoded_ list of attributes with the list of attributes from the API
+:::
+
+### Task 2.2 - parallel queries
+
+
+:::info[Requirement]
+Add a query to get the current logged in user info, and show their name and email. 
+:::
+
+:::danger
+@todo: update screenshot
+@todo: clarify partial updates with PATCH
+@todo: is there a more suitable (less contrived) query to run in parallel?
+:::
 ![](../assets/indicators.png)
 
-#### Submit your assignment
 
-When you're ready, please follow these [instructions](../resources/GET_STARTED.md#how-to-submit-assignments) to submit your assignment.
+## Mutations
 
-### Workshop - App Runtime Task 2
+> _**instructor note**:  Show examples of create, update, and delete mutations in the [Query playground](https://runtime.dhis2.nu/playground/)._
 
-#### Fill in mutations
 
-This application uses mutations in 2 React components:
+### Task 3.1 - useDataMutation
 
-```
-- [DeleteVisualizationButton](./src/components/DeleteVisualizationButton.js)
-- [NewVisualizationButton](./src/components/NewVisualizationButton.js)
-```
+:::info[Requirement]
+- Update the form to create a mutation to create a new entity when submitting the form.
+- Add a delete icon in the tables' rows to delete an entity using a Delete mutation.
+:::
 
-The application is almost complete, all you need to do is fill in the mutations in those two files.  You can use the [Data Query Playground](https://runtime.dhis2.nu/playground) to test different mutations.
+### Task 3.2 (optional bonus)
 
-### OPTIONAL BONUS
-
-If you've completed everything and want a challenge, you can **add a new feature to this application**.  This is **completely optional**, so don't worry about it if you haven't completed all the other tasks yet.
-
-#### The Bonus Feature
-
+:::info[Requirement]
 This application supports **creating** and **deleting** visualizations, but it doesn't support **renaming** them.  This is your task:
 
-Add an `Rename` button to each row in `VisualizationsTable.js`.  This Edit button should open a `Dialog` component (from `@dhis2/ui`) which contains a form.  That form should allow the user to type a new name for the selected Visualization.  When submitted, the form should use a Data Mutation to send a POST request updating the visualization's name.  The dialog should then disappear and the table of visualizations should refresh to show the updated name.  Good luck!
+Add an `Rename` button to each row in `VisualizationsTable.js`.  This Edit button should open a `Dialog` component (from `@dhis2/ui`) which contains a form.  That form should allow the user to type a new name for the selected Visualization.  When submitted, the form should use a Data Mutation to send a POST request updating the visualization's name.  The dialog should then disappear and the table of visualizations should refresh to show the updated name.
+:::
 
 
-## Advanced Application Runtime and Data Queries
+## Task 4 - Advanced use cases (dynamic queries)
 
-Some handy links:
+> _**instructor note**:  Live code the advanced query options._
 
-- [REST API Documentation](https://docs.dhis2.org/2.34/en/dhis2_developer_manual/web-api.html)
-- [App Runtime Docs](https://runtime.dhis2.nu)
+
+:::info[Requirements]
+- Add paging to go through the different pages of the list.
+- Add a refresh button to reload the table list.
+:::
+
+
+## Resources
+
+- [REST API Documentation](https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-master/introduction.html)
+- [App Runtime Docs](https://developers.dhis2.org/docs/app-runtime/getting-started/)
 - [Data Query Playground](https://runtime.dhis2.nu/playground)
 - [App Runtime Example App](https://github.com/dhis2/app-runtime/tree/master/examples/cra)
-
-### Tasks intructions
-
-1. There are three simple tasks to be completed. The comments that are important are the ones containing `@TODO` in `src/ProgramsList.js` and `src/DeleteProgram.js`
-2. After you've completed these tasks, please follow these [instructions](../resources/GET_STARTED.md#how-to-submit-assignments) for submitting your assignment.
-
-#### TASK 1 - Using Dynamic queries and variables
-
-In this task you will convert a static query into a dynamic one. You will be working in the `src/ProgramsList.js` component (check first comments `@TODO-1`)
-
-#### TASK 2 - Using `Alerts`
-
-Check the comments in the `src/ProgramList.js` component starting with `@TODO-3`.
-
-In this task you will use a simple `useAlert` to show alerts when a program has been created
-
-#### TASK 3 - Define a dynamic delete mutation
-
-Here you will be working mostly in the `src/DeleteProgram.js` component. Check for comments starting with `@TODO-2`. The goal of this task is to make the Delete button work.
-
-You will implement a delete mutation using dynamic query techniques.
