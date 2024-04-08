@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import {
     Button,
     InputFieldFF,
@@ -36,7 +37,7 @@ const { Field, Form: RFForm } = ReactFinalForm
 
 export const Form = () => (
     <div>
-        <h1>Form</h1>
+        <h1>{i18n.t('Form')}</h1>
 
         <RFForm onSubmit={alertValues}>
             {({ handleSubmit }) => (
@@ -44,14 +45,14 @@ export const Form = () => (
                     <div className={styles.row}>
                         <Field
                             name="title"
-                            label="Title"
+                            label={i18n.t('Title')}
                             component={SingleSelectFieldFF}
                             className={styles.title}
                             initialValue="none"
                             options={[
-                                { label: 'Professor', value: 'prof' },
-                                { label: 'Doctor', value: 'doc' },
-                                { label: 'None', value: 'none' },
+                                { label: i18n.t('Professor'), value: 'prof' },
+                                { label: i18n.t('Doctor'), value: 'doc' },
+                                { label: i18n.t('None'), value: 'none' },
                             ]}
                         />
                     </div>
@@ -60,7 +61,7 @@ export const Form = () => (
                         <Field
                             required
                             name="surname"
-                            label="Surname"
+                            label={i18n.t('Surname')}
                             component={InputFieldFF}
                             className={styles.surname}
                             validate={hasValue}
@@ -69,7 +70,7 @@ export const Form = () => (
                         <Field
                             required
                             name="firstname"
-                            label="First name"
+                            label={i18n.t('First name')}
                             component={InputFieldFF}
                             className={styles.firstname}
                             validate={hasValue}
@@ -80,7 +81,7 @@ export const Form = () => (
                         <Field
                             required
                             name="username"
-                            label="Username"
+                            label={i18n.t('Username')}
                             component={InputFieldFF}
                             className={styles.email}
                             validate={composeValidators(
@@ -94,7 +95,7 @@ export const Form = () => (
                         <Field
                             required
                             name="password"
-                            label="Password"
+                            label={i18n.t('Password')}
                             type="password"
                             component={InputFieldFF}
                             className={styles.password}
@@ -109,7 +110,7 @@ export const Form = () => (
                         <Field
                             required
                             name="email"
-                            label="E-mail address"
+                            label={i18n.t('E-mail address')}
                             component={InputFieldFF}
                             className={styles.username}
                             validate={composeValidators(email, hasValue)}
@@ -120,7 +121,7 @@ export const Form = () => (
                         <Field
                             required
                             name="confirm_email"
-                            label="Confirm e-mail address"
+                            label={i18n.t('Confirm e-mail address')}
                             component={InputFieldFF}
                             className={styles.email}
                             validate={composeValidators(
@@ -134,7 +135,7 @@ export const Form = () => (
                         <Field
                             type="checkbox"
                             name="newsletter"
-                            label="I want to receive the newsletter"
+                            label={i18n.t('I want to receive the newsletter')}
                             component={SwitchFieldFF}
                             className={styles.newsletters}
                             initialValue={false}
@@ -143,7 +144,7 @@ export const Form = () => (
 
                     <div className={styles.row}>
                         <Button type="submit" primary>
-                            Submit form
+                            {i18n.t('Submit form')}
                         </Button>
                     </div>
                 </form>

@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import {
     CenteredContent,
     CircularLoader,
@@ -32,15 +33,17 @@ export const Attributes = () => {
 
     return (
         <div>
-            <h1>Attributes</h1>
+            <h1>{i18n.t('Attributes')}</h1>
             {
                 // if there is any data available
                 data?.attributes?.attributes && (
                     <Table>
                         <TableHead>
                             <TableRowHead>
-                                <TableCellHead>Name</TableCellHead>
-                                <TableCellHead>Unique</TableCellHead>
+                                <TableCellHead>{i18n.t('Name')}</TableCellHead>
+                                <TableCellHead>
+                                    {i18n.t('Unique')}
+                                </TableCellHead>
                             </TableRowHead>
                         </TableHead>
                         <TableBody>
@@ -49,7 +52,9 @@ export const Attributes = () => {
                                     <TableRow key={id}>
                                         <TableCell>{displayName}</TableCell>
                                         <TableCell>
-                                            {unique ? 'Yes' : 'No'}
+                                            {unique
+                                                ? i18n.t('Yes')
+                                                : i18n.t('No')}
                                         </TableCell>
                                     </TableRow>
                                 )

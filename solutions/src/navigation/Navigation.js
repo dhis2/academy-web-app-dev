@@ -1,3 +1,4 @@
+import i18n from '@dhis2/d2-i18n'
 import { Menu, MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
@@ -27,19 +28,19 @@ export const Navigation = () => (
     <Menu>
         <NavigationItem
             // Menu item for the home page
-            label="Home"
+            label={i18n.t('Home')}
             path="/"
         />
 
         <NavigationItem
             // Menu item for the meta data page
-            label="Attributes"
+            label={i18n.t('Attributes')}
             path="/attributes"
         />
 
         <NavigationItem
             // Menu item for the Form page
-            label="Form"
+            label={i18n.t('Form')}
             path="/form"
         />
     </Menu>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
+import './locales/index.js'
 import styles from './App.module.css'
 import { Navigation } from './navigation/index.js'
 import { Form, Home, Attributes } from './views/index.js'
