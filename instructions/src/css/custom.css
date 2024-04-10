@@ -33,3 +33,7 @@
   font-weight: bold;
   text-decoration: underline;
 }
+
+pre.prism-code {
+  max-height: 300px;
+}

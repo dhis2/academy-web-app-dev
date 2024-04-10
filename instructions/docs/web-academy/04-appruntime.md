@@ -98,37 +98,145 @@ On top of the table, show the current user `displayName` and `email`. This infor
 > _**instructor note**:  Show examples of create, update, and delete mutations in the [Query playground](https://runtime.dhis2.nu/playground/)._
 
 
-### Task 3.1 - useDataMutation
+### Task 3.1 - Create Attribute
+
+:::info[Requirements]
+- Under the attributes table, add a form to create a new attribute.
+- Show an Alert when the form is updated successfully.
+- Show an error message when the form submission errors (for example, if the attribute name is not unique)
+
+The list of Attributes is not automatically updated after a new Attribute is created, ignore that for now. We will work on automatically refreshing the list in the next section.
+
+**Tip:**: change the order of the Attributes in the table to be sorted by `order: 'created:desc'` in order to see the newly created attributes at the top of the table.
+:::
+
+:::info[Bonus Requirement]
+In the case of errors, we're just showing the general error message returned from the API. Inspect the response, and you will see that the error details exist in the returned object. As a bonus, update the error displayed to get all the list of errors and display them in the Alert.
+:::
+
+#### The expected result
+You should create the form under the attributes list. Hardcode the list of Value Types to `TEXT` and `NUMBER`. On submit, if the creation succeeds show the success Alert below (with the ID of the created Attribute)
+
+![Create Attribute Form and success message](../assets/appruntime-workshop/task-mutation.png)
+
+Here is the code for the `Create Attribute form` to get you started quickly. Add it to your project, and reference the component to display under the Attributes table (`src/views/Attributes.js`)
+
+```jsx title="/src/views/AttributeCreateForm.js" 
+import i18n from '@dhis2/d2-i18n'
+import {
+    Button,
+    InputFieldFF,
+    hasValue,
+    ReactFinalForm,
+    SingleSelectFieldFF,
+} from '@dhis2/ui'
+import React from 'react'
+import styles from './Form.module.css'
+
+const { Field, Form: RFForm } = ReactFinalForm
+
+const AttributeCreateForm = () => {
+    const onSubmit = async (values) => {
+        // @todo: add the mutation
+    }
+
+    return (
+        <div>
+            <h1>{i18n.t('Add an attribute')}</h1>
+
+            <RFForm onSubmit={onSubmit}>
+                {({ handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
+                        <div className={styles.row}>
+                            <Field
+                                required
+                                name="name"
+                                label={i18n.t('Attribute name')}
+                                component={InputFieldFF}
+                                validate={hasValue}
+                            />
+                        </div>
+                        <div className={styles.row}>
+                            <Field
+                                name="valueType"
+                                label={i18n.t('Value Type')}
+                                component={SingleSelectFieldFF}
+                                className={styles.title}
+                                initialValue="TEXT"
+                                options={[
+                                    {
+                                        label: i18n.t('Text'),
+                                        value: 'TEXT',
+                                    },
+                                    {
+                                        label: i18n.t('Number'),
+                                        value: 'NUMBER',
+                                    },
+                                ]}
+                            />
+                        </div>
+
+                        <div className={styles.row}>
+                            <Button type="submit" primary>
+                                {i18n.t('Save')}
+                            </Button>
+                        </div>
+                    </form>
+                )}
+            </RFForm>
+        </div>
+    )
+}
+
+export default AttributeCreateForm
+
+```
+
+If the submission fails, for example, in the case of a duplicate name, then show an error message with the error received.
+
+![Create Attribute Form and error message](../assets/appruntime-workshop/task-mutation-error.png)
+
+
+
+### Task 3.2 - Delete Attribute
 
 :::info[Requirement]
-- Update the form to create a mutation to create a new entity when submitting the form.
-- Add a delete icon in the tables' rows to delete an entity using a Delete mutation.
-:::
-
-:::danger
-@todo: clarify partial updates with PATCH
-:::
-
-
-### Task 3.2 (optional bonus)
-
-:::info[Requirement]
-This application supports **creating** and **deleting** visualizations, but it doesn't support **renaming** them.  This is your task:
-
-Add an `Rename` button to each row in `VisualizationsTable.js`.  This Edit button should open a `Dialog` component (from `@dhis2/ui`) which contains a form.  That form should allow the user to type a new name for the selected Visualization.  When submitted, the form should use a Data Mutation to send a POST request updating the visualization's name.  The dialog should then disappear and the table of visualizations should refresh to show the updated name.
+- Add a delete button in the tables' rows to delete an entity using a Delete mutation.
+```jsx title="example delete button"
+<Button small destructive disabled={loading} onClick={onClick}>Delete</Button>
+```
+- Check out the [Data Mutation tutotial](https://developers.dhis2.org/docs/tutorials/app-runtime-mutation) from our documentation for an example of implement a `Delete` mutation.
 :::
 
 
-## Task 4 - Advanced use cases (dynamic queries)
+## Advanced use cases
 
 > _**instructor note**:  Live code the advanced query options._
 
-
+### Task 4.1 - Add Refresh button to the table
 :::info[Requirements]
-- Add paging to go through the different pages of the list.
-- Add a refresh button to reload the table list.
+- Add a button to refresh the Attributes list
+- Make sure the list is refreshed when the user creates a new Attribute.
 :::
 
+### Task 4.2 - Show Attribute details (dynamic queries)
+:::info[Requirements]
+- When the user clicks on a row, show the rest of the details of the attribute.
+- You can just dump the JSON returned for now (or design in a nice UI if you prefer).
+:::
+
+### Task 4.3 - Paging
+:::info[Requirements]
+- Implement ability to go through the pages of the Attributes list.
+:::
+
+### Task 4.4 - Update Attribute (optional bonus)
+
+:::info[Requirement]
+This application supports **creating** and **deleting** attributes, but it doesn't support **renaming** them.  This is your task:
+
+Add an `Rename` button to each row in `Attributes.js`.  This Edit button should open a `Dialog` component (from `@dhis2/ui`) which contains a form.  That form should allow the user to type a new name for the selected Attribute.  When submitted, the form should use a Data Mutation to send a POST request updating the visualization's name.  The dialog should then disappear and the table of visualizations should refresh to show the updated name.
+:::
 
 ## Resources
 
@@ -136,3 +244,5 @@ Add an `Rename` button to each row in `VisualizationsTable.js`.  This Edit butto
 - [App Runtime Docs](https://developers.dhis2.org/docs/app-runtime/getting-started/)
 - [Data Query Playground](https://runtime.dhis2.nu/playground)
 - [App Runtime Example App](https://github.com/dhis2/app-runtime/tree/master/examples/cra)
+- [Data Query tutorial](https://developers.dhis2.org/docs/tutorials/app-runtime-query)
+- [Data Mutation tutorial](https://developers.dhis2.org/docs/tutorials/app-runtime-mutation)
