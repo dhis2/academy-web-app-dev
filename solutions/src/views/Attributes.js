@@ -13,6 +13,7 @@ import {
     TableRowHead,
 } from '@dhis2/ui'
 import React from 'react'
+import AttributeCreateForm from './AttributeCreateForm.js'
 import styles from './Attributes.module.css'
 
 const query = {
@@ -93,6 +94,7 @@ export const Attributes = () => {
                     </Table>
                 )
             }
+            <AttributeCreateForm />
         </div>
     )
 }
