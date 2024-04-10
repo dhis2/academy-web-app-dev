@@ -1,3 +1,4 @@
+import { useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     CenteredContent,
@@ -12,12 +13,20 @@ import {
     TableRowHead,
 } from '@dhis2/ui'
 import React from 'react'
-import { useGetAttributes } from '../hooks/index.js'
+
+const query = {
+    attributes: {
+        resource: 'attributes',
+        params: {
+            order: 'displayName:desc',
+            fields: ['displayName', 'code', 'id', 'unique'],
+            pageSize: 5,
+        },
+    },
+}
 
 export const Attributes = () => {
-    // we get the data using a custom hook
-    // we will update this implementation after learning about app-runtime
-    const { loading, error, data } = useGetAttributes()
+    const { loading, error, data } = useDataQuery(query)
 
     if (loading) {
         return (
