@@ -66,7 +66,7 @@ You should also handle the **error** state. For this exercise, you can simulate 
 
 > _**instructor note**:  Overview of the API and how to convert an API request to a query, and demonstrate the [Query playground](https://runtime.dhis2.nu/playground/)._
 
-### Task 2.1 - useDataQuery
+### Task 2.1 - Get list of Attributes (useDataQuery)
 
 :::info[Requirement]
 Replace the _hardcoded_ list of attributes with the list of attributes from the API. For the API call, we want to:
@@ -80,7 +80,7 @@ The expected result should not look much different except that it's in the rever
 ![Show list of attributes from the API](../assets/appruntime-workshop/task-use-data-query.png)
 
 
-### Task 2.2 - parallel queries
+### Task 2.2 - Get user info (parallel queries)
 
 
 :::info[Requirement]
@@ -98,7 +98,7 @@ On top of the table, show the current user `displayName` and `email`. This infor
 > _**instructor note**:  Show examples of create, update, and delete mutations in the [Query playground](https://runtime.dhis2.nu/playground/)._
 
 
-### Task 3.1 - Create Attribute
+### Task 3.1 - Create Attribute (useDataMutation)
 
 :::info[Requirements]
 - Under the attributes table, add a form to create a new attribute.
@@ -198,39 +198,36 @@ If the submission fails, for example, in the case of a duplicate name, then show
 
 
 
-### Task 3.2 - Delete Attribute
+### Task 3.2 - Delete Attribute (and refresh)
 
 :::info[Requirement]
 - Add a delete button in the tables' rows to delete an entity using a Delete mutation.
 ```jsx title="example delete button"
 <Button small destructive disabled={loading} onClick={onClick}>Delete</Button>
 ```
-- Check out the [Data Mutation tutotial](https://developers.dhis2.org/docs/tutorials/app-runtime-mutation) from our documentation for an example of implement a `Delete` mutation.
+- Refresh the page after an item is deleted successfuly
+**Tip:** Check out the [Data Mutation tutotial](https://developers.dhis2.org/docs/tutorials/app-runtime-mutation) from our documentation for an example of implement a `Delete` mutation.
 :::
 
+![Delete Attribute functionality](../assets/appruntime-workshop/task-mutation-delete.gif)
 
-## Advanced use cases
+
+## Other use cases
 
 > _**instructor note**:  Live code the advanced query options._
 
-### Task 4.1 - Add Refresh button to the table
-:::info[Requirements]
-- Add a button to refresh the Attributes list
-- Make sure the list is refreshed when the user creates a new Attribute.
-:::
-
-### Task 4.2 - Show Attribute details (dynamic queries)
+### Task 4.1 - Show Attribute details (dynamic queries)
 :::info[Requirements]
 - When the user clicks on a row, show the rest of the details of the attribute.
 - You can just dump the JSON returned for now (or design in a nice UI if you prefer).
 :::
 
-### Task 4.3 - Paging
+### Task 4.2 - Paging
 :::info[Requirements]
 - Implement ability to go through the pages of the Attributes list.
 :::
 
-### Task 4.4 - Update Attribute (optional bonus)
+### Task 4.3 - (Bonus) Update Attribute
 
 :::info[Requirement]
 This application supports **creating** and **deleting** attributes, but it doesn't support **renaming** them.  This is your task:
