@@ -205,26 +205,36 @@ If the submission fails, for example, in the case of a duplicate name, then show
 ```jsx title="example delete button"
 <Button small destructive disabled={loading} onClick={onClick}>Delete</Button>
 ```
-- Refresh the page after an item is deleted successfuly
-**Tip:** Check out the [Data Mutation tutotial](https://developers.dhis2.org/docs/tutorials/app-runtime-mutation) from our documentation for an example of implement a `Delete` mutation.
+- **Refresh** the list of Attributes after an item is deleted successfuly.
+
+**Tip:** Check out the [Data Mutation tutotial](https://developers.dhis2.org/docs/tutorials/app-runtime-mutation) from our documentation for an example of how to implement a `Delete` mutation.
 :::
 
+#### The expected result
 ![Delete Attribute functionality](../assets/appruntime-workshop/task-mutation-delete.gif)
 
 
-## Other use cases
+## Advanced use cases
 
 > _**instructor note**:  Live code the advanced query options._
 
-### Task 4.1 - Show Attribute details (dynamic queries)
+### Task 4.1 - Pagination
+:::info[Requirements]
+- Implement ability to go through the pages of the Attributes list.
+- Implement ability to change the page size.
+- **Tip**: Look at the [Pagination](https://ui.dhis2.nu/components/pagination/) component (and the demo link at the end).
+:::
+
+#### The expected result
+A paginator should be added to the bottom of the table and its initial values should reflect the number _attributes_ returned by the API. It should respond to any change to the _page size_ or _page number_ and show the correct data.
+
+![Pagination functionality](../assets/appruntime-workshop/task-pagination.png)
+
+
+### Task 4.2 - Show Attribute details
 :::info[Requirements]
 - When the user clicks on a row, show the rest of the details of the attribute.
 - You can just dump the JSON returned for now (or design in a nice UI if you prefer).
-:::
-
-### Task 4.2 - Paging
-:::info[Requirements]
-- Implement ability to go through the pages of the Attributes list.
 :::
 
 ### Task 4.3 - (Bonus) Update Attribute
