@@ -1,6 +1,7 @@
-import { useDataQuery } from '@dhis2/app-runtime'
+import { useDataMutation, useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
+    Button,
     CenteredContent,
     CircularLoader,
     NoticeBox,
@@ -33,8 +34,15 @@ const query = {
     },
 }
 
+const deleteMutation = {
+    resource: 'attributes',
+    type: 'delete',
+    id: ({ id }) => id,
+}
+
 export const Attributes = () => {
-    const { loading, error, data } = useDataQuery(query)
+    const { loading, error, data, refetch } = useDataQuery(query)
+    const [deleteAttribute] = useDataMutation(deleteMutation)
 
     if (loading) {
         return (
@@ -51,6 +59,11 @@ export const Attributes = () => {
     const {
         myUserInfo: { displayName, email },
     } = data
+
+    const onDeleteAttribute = async (mutationId) => {
+        await deleteAttribute({ id: mutationId })
+        refetch()
+    }
 
     return (
         <div>
@@ -74,6 +87,7 @@ export const Attributes = () => {
                                 <TableCellHead>
                                     {i18n.t('Value Type')}
                                 </TableCellHead>
+                                <TableCellHead>Delete?</TableCellHead>
                             </TableRowHead>
                         </TableHead>
                         <TableBody>
@@ -87,6 +101,18 @@ export const Attributes = () => {
                                                 : i18n.t('No')}
                                         </TableCell>
                                         <TableCell>{valueType}</TableCell>
+                                        <TableCell>
+                                            <Button
+                                                small
+                                                destructive
+                                                disabled={loading}
+                                                onClick={() =>
+                                                    onDeleteAttribute(id)
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+                                        </TableCell>
                                     </TableRow>
                                 )
                             )}
