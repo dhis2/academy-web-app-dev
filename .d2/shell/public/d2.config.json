@@ -1,0 +1,10 @@
+{
+  "type": "app",
+  "name": "workshop",
+  "version": "1.0.0",
+  "description": "",
+  "title": "workshop",
+  "entryPoints": {
+    "app": "index.html"
+  }
+}
