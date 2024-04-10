@@ -4,7 +4,7 @@ sidebar_position: 50
 ---
 
 :::tip[What you will learn]
-- [ ] An overview of the the App Platform and App Runtime toolset
+- [ ] An overview of the App Platform and App Runtime toolset
 - [ ] The philoshopy behind AppRuntime hooks (imperative vs declarative)
 - [ ] Use Alerts and Config service
 - [ ] Use Data Service: Lookup specific APIs and convert the API requests into queries and mutations

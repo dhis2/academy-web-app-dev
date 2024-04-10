@@ -3,10 +3,14 @@ title: Day 4 | Data Store
 sidebar_position: 60
 ---
 
-:::danger[work in progress]
-Owned and will be updated by **Sakibou**
+:::tip[What you will learn]
+- [ ] DHIS2 Data stores
+:::
 
-Content here is draft copy from 2022 workshop: https://github.com/dhis2/academy-web-app-dev-2022/tree/main/workshop/06-generic-dhis2-apps
+:::danger[work in progress]
+**Sakibou** will present on how to use the DHIS2 data stores.
+
+This page is a draft copy from 2022 workshop: https://github.com/dhis2/academy-web-app-dev-2022/tree/main/workshop/06-generic-dhis2-apps
 :::
 
 ## Agenda
@@ -16,7 +20,7 @@ Content here is draft copy from 2022 workshop: https://github.com/dhis2/academy-
 | 10:30 - 11:00 | _coffee break_ | |
 | 11:00 - 12:30 | Workshop | Data Store |
 | 12:30 - 13:30 | _lunch break_ | |
-| 13:30 - 15:00 | Workshop | Making apps generic |
+| 13:30 - 15:00 | Workshop | Generalizability with Data stores |
 | 15:00 - 15:30 | _coffee break_ | |
 | 15:30 - 16:30 | Workshop | |
 | 16:30 - 16:45 | Closing | |
