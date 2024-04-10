@@ -1,2 +1,0 @@
-import React from 'react';
-export const Home = () => /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Home"), /*#__PURE__*/React.createElement("p", null, "DHIS2 Web App Academy 2024"));
