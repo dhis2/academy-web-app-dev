@@ -13,13 +13,20 @@ import {
     TableRowHead,
 } from '@dhis2/ui'
 import React from 'react'
+import styles from './Attributes.module.css'
 
 const query = {
+    myUserInfo: {
+        resource: 'me',
+        params: {
+            fields: ['displayName', 'email'],
+        },
+    },
     attributes: {
         resource: 'attributes',
         params: {
-            order: 'displayName:desc',
-            fields: ['displayName', 'code', 'id', 'unique'],
+            order: 'created:desc',
+            fields: ['displayName', 'code', 'id', 'unique', 'valueType'],
             pageSize: 5,
         },
     },
@@ -40,9 +47,19 @@ export const Attributes = () => {
         return <NoticeBox error>{error?.message}</NoticeBox>
     }
 
+    const {
+        myUserInfo: { displayName, email },
+    } = data
+
     return (
         <div>
             <h1>{i18n.t('Attributes')}</h1>
+            <div className={styles.tableInfo}>
+                {i18n.t('Attributes visible to {{name}} ({{email}})', {
+                    name: displayName,
+                    email,
+                })}
+            </div>
             {
                 // if there is any data available
                 data?.attributes?.attributes && (
@@ -53,11 +70,14 @@ export const Attributes = () => {
                                 <TableCellHead>
                                     {i18n.t('Unique')}
                                 </TableCellHead>
+                                <TableCellHead>
+                                    {i18n.t('Value Type')}
+                                </TableCellHead>
                             </TableRowHead>
                         </TableHead>
                         <TableBody>
                             {data.attributes.attributes.map(
-                                ({ id, displayName, unique }) => (
+                                ({ id, displayName, unique, valueType }) => (
                                     <TableRow key={id}>
                                         <TableCell>{displayName}</TableCell>
                                         <TableCell>
@@ -65,6 +85,7 @@ export const Attributes = () => {
                                                 ? i18n.t('Yes')
                                                 : i18n.t('No')}
                                         </TableCell>
+                                        <TableCell>{valueType}</TableCell>
                                     </TableRow>
                                 )
                             )}

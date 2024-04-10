@@ -104,10 +104,10 @@ export const Form = () => {
                                 type="password"
                                 component={InputFieldFF}
                                 className={styles.password}
-                                // validate={composeValidators(
-                                //     dhis2Password,
-                                //     hasValue
-                                // )}
+                                validate={composeValidators(
+                                    dhis2Password,
+                                    hasValue
+                                )}
                             />
                         </div>
 
