@@ -271,7 +271,7 @@ We will create a form that can be used to collect user details that could be sub
 
 Once all steps have been completed, the form page should look like this:
 
-![Finished form page](../assets/finished_form_page.jpg)
+![Finished form](../assets/form_finished.png)
 
 The specific values that we are collecting in the field are:
 
@@ -290,7 +290,7 @@ If the form validation fails, then the form should contains the respective
 error message. In the following image all fields that have a validation
 function are invalid:
 
-![Invalid form](../assets/invalid_form.jpg)
+![Invalid form](../assets/invalid_form.png)
 
 <a name="task-3--code-to-use" href=""></a>
 

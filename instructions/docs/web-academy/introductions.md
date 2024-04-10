@@ -3,6 +3,16 @@ title: Day 1 | Introductions
 sidebar_position: 20
 ---
 
+:::tip[What you will learn]
+- [ ] An overview of the coming week
+- [ ] An introduction to DHIS2
+- [ ] Fundamental DHIS2 UI Principles
+- [ ] Basics of the DHIS2 API
+- [ ] Introduction to how we use Git at DHIS2
+- [ ] Getting your local developer environment set up
+- [ ] How to initialize an app using d2
+:::
+
 ## Agenda
 | Time          | Topic                                                                                                                                                                                                    |
 | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -11,7 +21,7 @@ sidebar_position: 20
 | 09:15         | **Welcome by Ministry of Health Côte d’Ivoire**                                                                                                                                                           |
 | 09:30         | **General introductions**                                                                                                                                                                                |
 | 10:30 - 11:00 | _Coffee Break_                                                                                                                                                                                           |
-| 11:00 - 13:00 | **Common courses and presentations**<br/><ul><li>DHIS2 Overview - Austin</li><li>UI principles and patterns - Rene</li><li>API Basics - Austin</li><li>Git & Workflow - Rene</li></ul>                   |
+| 11:00 - 13:00 | **Common courses and presentations**<br/><ul><li>DHIS2 Overview - Victor</li><li>UI principles and patterns - Rene</li><li>API Basics - Mozafar</li><li>Git - Rene</li></ul>                   |
 | 13:00 - 14:00 | _Lunch break_                                                                                                                                                                                            |
 | 14:00 - 15:00 | **Workshop Day 1 (Environment Setup)**                                                                                                                                                                   |
 | 15:00 - 15:30 | _coffee break_                                                                                                                                                                                            |  |
