@@ -45,19 +45,9 @@ The `git clone` command copies your repository from GitHub to your local compute
 
 ## Working on assignments
 
-On your terminal, navigate to the directory where your forked repository is saved.
+* On your terminal, navigate to the directory where your forked repository is saved.
 
-:::info[Workshop directory]
-We will be working in the subdirectory "workshop" throughout this course.
-:::
-
-This directory contains some basic boilerplate code for you to get started with. Follow these steps to setup your working directory:
-
-* First, navigate to the directory:
-
-```sh
-cd workshop
-```
+The root directory contains some basic boilerplate code for you to get started with. Proceed with these steps to get setup in your working directory.
 
 * Run `yarn install` to fetch all packages and dependencies.
 
@@ -94,7 +84,7 @@ password: district
 ```
 
 The code should look like this when you run it for the first time:
-
+![](../assets/app_start.png)
 
 ## Workflow
 
