@@ -138,10 +138,13 @@ const config: Config = {
       "@docusaurus/plugin-client-redirects",
       {
         redirects: [
-          // /docs/oldDoc -> /docs/newDoc
           {
             to: "/docs/before-academy/",
             from: "/docs/before-academy/environment-setup/",
+          },
+          {
+            to: "/docs/web-academy/",
+            from: "/docs/web-academy/introductions/",
           },
         ],
       },
