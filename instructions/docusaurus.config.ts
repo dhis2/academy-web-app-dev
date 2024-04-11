@@ -133,6 +133,20 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+  plugins: [
+    [
+      "@docusaurus/plugin-client-redirects",
+      {
+        redirects: [
+          // /docs/oldDoc -> /docs/newDoc
+          {
+            to: "/docs/before-academy/environment-setup/",
+            from: "/docs/before-academy/",
+          },
+        ],
+      },
+    ],
+  ],
 };
 
 export default config;
