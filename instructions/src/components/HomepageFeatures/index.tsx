@@ -11,9 +11,9 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Before the academy',
-    link: 'docs/before-academy/',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "Before the academy",
+    link: "docs/before-academy/",
+    Svg: require("@site/static/img/undraw_docusaurus_tree.svg").default,
     description: (
       <>
         Before the academy, please make sure to go through the pre-requisites to
@@ -22,9 +22,9 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'The Agenda',
-    link: 'docs/web-academy/introductions',
-    Svg: require('@site/static/img/flag_cote_ivoire.svg').default,
+    title: "The Agenda",
+    link: "docs/web-academy/introductions",
+    Svg: require("@site/static/img/flag_cote_ivoire.svg").default,
     description: (
       <>
         Have a look at the agenda to have an idea about the topics we will cover
@@ -33,12 +33,13 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Useful Resources',
-    link: 'resources',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "Useful Resources",
+    link: "docs/resources/links",
+    Svg: require("@site/static/img/undraw_docusaurus_react.svg").default,
     description: (
       <>
-        Check out the resources, and make sure to join our <a href='https://dhis2-dev-community.slack.com/'>Slack</a> where all the
+        Check out the resources, and make sure to join our{" "}
+        <a href="https://dhis2-dev-community.slack.com/">Slack</a> where all the
         conversations will happen during the academy.
       </>
     ),

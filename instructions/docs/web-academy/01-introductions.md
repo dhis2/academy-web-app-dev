@@ -32,7 +32,7 @@ sidebar_position: 20
 In this session, we will make sure your environment is set up correctly, and go through creating a new DHIS2 app using the `d2` CLI. 
 
 :::danger[Important]
-Are you able to run `d2 --version` on your terminal? If not, make sure to setup `d2` following the [setup instructions](../before-academy/environment-setup.md).
+Are you able to run `d2 --version` on your terminal? If not, make sure to setup `d2` following the [setup instructions](../before-academy/before-academy.md).
 :::
 
 ### Initialize a new DHIS2 app
