@@ -140,8 +140,8 @@ const config: Config = {
         redirects: [
           // /docs/oldDoc -> /docs/newDoc
           {
-            to: "/docs/before-academy/environment-setup/",
-            from: "/docs/before-academy/",
+            to: "/docs/before-academy/",
+            from: "/docs/before-academy/environment-setup/",
           },
         ],
       },

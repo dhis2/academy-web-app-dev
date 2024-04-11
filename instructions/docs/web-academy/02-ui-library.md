@@ -73,7 +73,7 @@ The instructions on this page will provide a guide to help you complete the task
 
 Throughout the academy, you will be working on a sample project. This project contains some sample code that you can use as a starting point.
 
-Please follow [this step-by-step guide](../resources/set_up_fork.md#working-on-directories-that-contain-starter-code) on how to setup your local environment and start working on this assignment.
+Please follow [this step-by-step guide](../resources/set_up_fork.md#workflow) on how to setup your local environment and start working on this assignment.
 
 <a name="src-structure" href=""></a>
 
