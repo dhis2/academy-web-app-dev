@@ -13,31 +13,41 @@ sidebar_position: 80
 ## Agenda
 | Time | Topic | |
 | --- | --- | --- |
-| 09:00 - 10:30 | Closing Workshop | |
+| 09:00 - 10:30 | Closing Workshop | _topic to be decided by participants_ |
 | 10:30 - 11:00 | _coffee break_ | |
-| 11:00 - 12:30 | Workshop | |
+| 11:00 - 12:30 | Workshop | _topic to be decided by participants_ |
 | 12:30 - 13:30 | _lunch break_ | |
-| 13:30 - 15:00 | Workshop | |
+| 13:30 - 15:00 | Common workshops | App Ecosystem, continuous learning, CoP, Developer Meetups|
 | 15:00 - 15:30 | _coffee break / closing_ | |
 
-## Morning workshop 1 (TBD)
+:::warning[Potential topics for Day 5]
+The topics for day 5 will be chosen by academy participants based on interest. Some potential topics are:
 
-The topic will be chosen by academy participants based on interest.
+- External API calls (routing)
+- Plugins
+- Advanced UI components
+- Typescript support
+- Quality for apps: overview and open discussion of testing, CI/CD, process etc..
+:::
+
+## Morning workshop 1 (TBD)
+_Topic to be decided_
 
 ## Morning workshop 2 (TBD)
+_Topic to be decided_
 
-The topic will be chosen by academy participants based on interest.
+## Afternoon common sessions
 
-## App Ecosystem
+### App Ecosystem
 
 How will you distribute your app after you’re done? Diving in both the App Hub and Android Distribution. It can be important for both android and web academy participants to know about the other distribution platform.
 
 
-## How to keep learning
+### How to keep learning
 Now that the basics are covered, how do you keep learning? We’re going to be looking at where documentation is hosted, and how to learn from other people’s code (GitHub) among other things. Developer Portal will be discussed during this presentation as well.
 
 
-### CoP, JIRA & Getting help
+#### CoP, JIRA & Getting help
 
 How can the Community of Practice play a role in learning more and getting answers to questions anyone might encounter during their continued development? We’ll be diving into the CoP and seeing what categories are available, where they should post what kind of questions, and how to tag their posts. 
 
@@ -45,5 +55,5 @@ Furthermore, of course, also looking into searching for answers, answering other
 
 Then there’s the upstream direction of asking questions and reporting bugs when issues are encountered. Through a contact known in the organization you’re working for, or through JIRA.
 
-### Developer Meetups
+#### Developer Meetups
 We’ll shortly discuss developer meetups, what kind of topics have been present in 2023/early 2024, and what to expect going forward. But also asking for volunteers to have an Academy-themed meetup where several people will share their experience during the academy for 10-15 minutes (short time each).
