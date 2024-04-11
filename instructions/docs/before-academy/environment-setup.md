@@ -1,11 +1,21 @@
 ---
-title: Setup
-sidebar_position: 20
+title: Before the Academy (setup)
+sidebar_position: 5
 ---
 
-# DHIS2 Web App Academy Environment Setup
+# DHIS2 Web App Academy Setup
 
-In this course, we will use the DHIS2 App Platform to help with building of our DHIS2 apps. To do this you need to get the d2 CLI working. We will also be working in GitHub, and you need to have a GitHub account.
+In this academy, we will use the DHIS2 App Platform to build DHIS2 apps. To do this you need to get the `d2` CLI working. We will also be working in GitHub, and you need to have a GitHub account.
+
+
+:::danger[Important!]
+Before the academy, please make sure:
+
+- [ ] You have `d2` CLI installed and running using [the instructions](#setting-up-d2-cli) below. If you have any issues, then reach out on the Slack channel.
+- [ ] You have a [GitHub](https://github.com/) account ready to use, and [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) is installed  and running locally.
+:::
+
+We also _recommend_ that you [setup a local DHIS2 instance](#running-a-local-backend-instance). This will ensure that you can work independently locally and don't depend on the the internet connection to reach the backend. It's also a good way to explore DHIS2 generally beyond the academy.
 
 
 ## Setting up d2 CLI

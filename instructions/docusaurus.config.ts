@@ -96,11 +96,6 @@ const config: Config = {
               docId: "resources/set_up_fork",
               label: "Set up your fork",
             },
-            {
-              type: "doc",
-              docId: "resources/build-local-app",
-              label: "Build local app",
-            },
           ],
         },
         {

@@ -1,6 +1,6 @@
 ---
-title: Prerequisites
-sidebar_position: 5
+title: General Prerequisites
+sidebar_position: 10
 ---
 
 # DHIS2 Web App Academy Pre-Requisites
