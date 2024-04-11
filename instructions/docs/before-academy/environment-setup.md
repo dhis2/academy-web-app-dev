@@ -83,7 +83,7 @@ If you get the version back (e.g. `4.2.3`), your d2 is installed correctly.
 
 ## Running a local backend instance
 
-DHIS2 web apps are designed to be connected to a DHIS2 backend. Throughout the academy, we will have a dedicated DHIS2 instance, https://debug.dhis2.org/dev, that can be used as a backend instance. However, this instance requires an internet connection. For long-term development, it might be useful to set up your own local DHIS2 instance, so that you can build apps even without an internet connection.
+DHIS2 web apps are designed to be connected to a DHIS2 backend. Throughout the academy, we will have a dedicated DHIS2 instance, https://dev.im.dhis2.org/academy-web, that can be used as a backend instance. However, this instance requires an internet connection. For long-term development, it might be useful to set up your own local DHIS2 instance, so that you can build apps even without an internet connection.
 
 The easiest way to set up a local DHIS2 instance is to use Docker. [This page](https://developers.dhis2.org/docs/tutorials/dhis2-docker) has details on how to set up your local instance with Docker. 
 
