@@ -59,6 +59,9 @@ npm install --global yarn
 
 See [yarn installation documentation](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) for more details.
 
+:::note[Node versions]
+If using yarn for the first time, you may need to add the install location to your local path (see details here: https://classic.yarnpkg.com/lang/en/docs/cli/global/)
+:::
 
 
 ### d2
