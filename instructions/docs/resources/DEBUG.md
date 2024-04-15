@@ -3,13 +3,9 @@ title: Debugging
 sidebar_position: 10
 ---
 
-:::danger[ToDo]
-- Are all these instructions still applicable?
-:::
-
 # Live instance debugging
 
-If you can't login to the server: https://academy.demos.dhis2.org/web-app/ or you get some Cross-Origin Resource Sharing (CORs) policy issues in the DevTools Console when trying to connect to your application, please try the following troubleshooting steps:
+If you can't login to the server: https://dev.im.dhis2.org/academy-web or you get some Cross-Origin Resource Sharing (CORs) policy issues in the DevTools Console when trying to connect to your application, please try the following troubleshooting steps:
 
 ## CORs whitelist
 
@@ -35,7 +31,7 @@ Due to the default SameSite cookie behaviour in Chrome being impossible to overr
 This starts a proxy-server in the background, re-routing all requests from your localhost to the specified DHIS2-instance, circumventing the SameSite behaviour.
 
 ```
-yarn start --proxy https://academy.demos.dhis2.org/web-app --proxyPort 8082
+yarn start --proxy https://dev.im.dhis2.org/academy-web --proxyPort 8082
 ```
 
 _Note_: Make sure to set the Server-field when logging into your app to `http://localhost:8082`.
