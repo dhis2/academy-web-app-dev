@@ -1,3 +1,4 @@
+import { Menu, MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
 // @TODO: Import the `Menu` and `MenuItem` components
@@ -10,14 +11,14 @@ const NavigationItem = ({ path, label }) => {
     // "null" when not active, "object" when active
     const routeMatch = useMatch(path)
     // path is matched if routeMatch is not null
-    // eslint-disable-next-line no-unused-vars
+    // eslint-disable-next-line no-unuseds-vars
     const isActive = Boolean(routeMatch)
 
     // eslint-disable-next-line no-unused-vars
     const onClick = () => navigate(path)
 
     // @TODO: Use the `MenuItem` component instead of the `div`
-    return <div>{label}</div>
+    return <MenuItem label={label} active={isActive} onClick={onClick}/>
 }
 
 NavigationItem.propTypes = {
@@ -27,7 +28,7 @@ NavigationItem.propTypes = {
 
 export const Navigation = () => (
     // @TODO: Use the `Menu` components instead of the `div`
-    <div>
+    <Menu>
         <NavigationItem
             // Menu item for the home page
             label="Home"
@@ -45,5 +46,5 @@ export const Navigation = () => (
             label="Form"
             path="/form"
         />
-    </div>
+    </Menu>
 )

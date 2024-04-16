@@ -1,1 +1,1 @@
-export * from './Navigation.js'
+export {Navigation} from './Navigation.js'
