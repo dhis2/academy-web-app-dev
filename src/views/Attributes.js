@@ -1,4 +1,16 @@
 import React from 'react'
+import {
+    CenteredContent,
+    CircularLoader,
+    NoticeBox,
+    Table,
+    TableBody,
+    TableCell,
+    TableCellHead,
+    TableHead,
+    TableRow,
+    TableRowHead,
+} from '@dhis2/ui'
 import { useGetAttributes } from '../hooks/index.js'
 
 export const Attributes = () => {
@@ -14,9 +26,26 @@ export const Attributes = () => {
             {
                 // if there is any data available
                 data?.attributes?.attributes && (
-                    <pre>
-                        {JSON.stringify(data.attributes.attributes, null, 4)}
-                    </pre>
+                    <Table>
+                        <TableHead>
+                        <TableRowHead>
+                                <TableCellHead>Name</TableCellHead>
+                                <TableCellHead>Unique</TableCellHead>
+                        </TableRowHead>  
+                        </TableHead>
+                        <TableBody>
+                            {data.attributes.attributes.map(
+                                ({ id, displayName, unique }) => (
+                                    <TableRow key={id}>
+                                        <TableCell>{displayName}</TableCell>
+                                        <TableCell>
+                                            {unique ? 'Yes' : 'No'}
+                                        </TableCell>
+                                    </TableRow>
+                                )
+                            )}
+                        </TableBody>
+                    </Table>
                 )
             }
         </div>
