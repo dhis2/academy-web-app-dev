@@ -1,5 +1,6 @@
 import React from 'react'
 import { useGetAttributes } from '../hooks/index.js'
+import Table from '../components/table/Table.js'
 
 export const Attributes = () => {
     // we get the data using a custom hook
@@ -9,16 +10,7 @@ export const Attributes = () => {
     return (
         <div>
             <h1>Attributes</h1>
-            <p>loading: {JSON.stringify(loading)}</p>
-            <p>error message: {error?.message}</p>
-            {
-                // if there is any data available
-                data?.attributes?.attributes && (
-                    <pre>
-                        {JSON.stringify(data.attributes.attributes, null, 4)}
-                    </pre>
-                )
-            }
+            <Table />
         </div>
     )
 }
