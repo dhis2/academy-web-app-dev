@@ -1,4 +1,4 @@
-# DHIS2 Web App Development Academy
+# DHIS2 Web App Development Academy - MEDULETU KAMATI Nam
 
 This is the repo that you will use during the Web Academy exercises. Please fork it, clone it and run it following the instructions on the workshop site: https://dhis2.github.io/academy-web-app-dev/docs/resources/set_up_fork.
 
