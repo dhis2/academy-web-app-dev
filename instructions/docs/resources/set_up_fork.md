@@ -97,7 +97,7 @@ While in a real-life project, we would encourage that you open a pull request (P
 
 ### Creating a new branch in your repository
 
-You can [create a branch](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) on your GitHub repository. You can give your branch a name that matches the day, for example: `day2`
+You can [create a branch](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch) on your GitHub repository. You can give your branch a name of your choice, for example: `working`
 * Or from your terminal:
 
 ```
