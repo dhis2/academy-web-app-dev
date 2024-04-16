@@ -1,5 +1,6 @@
 import React from 'react'
 import { useGetAttributes } from '../hooks/index.js'
+import {Table, TableHead, TableRowHead, TableCellHead, TableBody, TableRow, TableCell, TableFoot} from '@dhis2-ui/table'
 
 export const Attributes = () => {
     // we get the data using a custom hook
@@ -15,7 +16,33 @@ export const Attributes = () => {
                 // if there is any data available
                 data?.attributes?.attributes && (
                     <pre>
-                        {JSON.stringify(data.attributes.attributes, null, 4)}
+                          <Table>
+                            <TableHead>
+                                <TableRowHead>
+                                    <TableCellHead>
+                                        Name
+                                    </TableCellHead>
+                                    <TableCellHead>
+                                        Unique
+                                    </TableCellHead>
+                                </TableRowHead>
+                            </TableHead>
+                            <TableBody>
+                                {data.attributes.attributes.map(attr =>(
+                                    <TableRow>
+                                    <TableCell>
+                                        {attr.displayName}
+                                    </TableCell>
+                                    <TableCell>
+                                         {attr.unique ?"Yes":"No"}
+                                    </TableCell>
+                               </TableRow>
+
+                                ))}
+                            </TableBody>
+                            
+                        </Table>
+                       
                     </pre>
                 )
             }
