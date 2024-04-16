@@ -2,13 +2,16 @@ import {
     CenteredContent,
     CircularLoader,
     NoticeBox,
-    Table,
     TableBody,
     TableCell,
     TableCellHead,
     TableHead,
     TableRow,
     TableRowHead,
+    DataTable,
+    DataTableRow,
+    DataTableColumnHeader,
+    DataTableCell,
 } from '@dhis2/ui'
 import React from 'react'
 import { useGetAttributes } from '../hooks/index.js'
@@ -29,35 +32,48 @@ export const Attributes = () => {
     if (error) {
         return <NoticeBox error>{error?.message}</NoticeBox>
     }
+  
 
     return (
         <div>
-            <h1>Attributes</h1>
+
+<h4> Attributes</h4>
             {
                 // if there is any data available
                 data?.attributes?.attributes && (
-                    <Table>
+
+                    <DataTable>
                         <TableHead>
-                            <TableRowHead>
-                                <TableCellHead>Name</TableCellHead>
-                                <TableCellHead>Unique</TableCellHead>
-                            </TableRowHead>
+                            <DataTableRow>
+                                <DataTableColumnHeader>
+                                Name
+                                </DataTableColumnHeader>
+                                <DataTableColumnHeader>
+                                Unique
+                                </DataTableColumnHeader>
+                            </DataTableRow>
                         </TableHead>
-                        <TableBody>
-                            {data.attributes.attributes.map(
+                        <TableBody loading>
+                        {data.attributes.attributes.map(
                                 ({ id, displayName, unique }) => (
-                                    <TableRow key={id}>
-                                        <TableCell>{displayName}</TableCell>
-                                        <TableCell>
+                                    <DataTableRow key={id} 
+                                >
+                                        <DataTableCell bordered>{displayName}</DataTableCell>
+                                        <DataTableCell bordered>
                                             {unique ? 'Yes' : 'No'}
-                                        </TableCell>
-                                    </TableRow>
+                                        </DataTableCell>
+                                    </DataTableRow>
                                 )
                             )}
+                            
                         </TableBody>
-                    </Table>
+                      
+                    </DataTable>
+
                 )
             }
+
+          
         </div>
     )
 }
