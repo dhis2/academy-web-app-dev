@@ -62,6 +62,17 @@ function GroupForm() {
                         <div className={styles.row}>
                             <ReactFinalForm.Field
                                 required
+                                name="username"
+                                label="Username"
+                                component={InputFieldFF}
+                                className={styles.email}
+                                validate={hasValue}
+                            />
+                        </div>
+
+                        <div className={styles.row}>
+                            <ReactFinalForm.Field
+                                required
                                 name="password"
                                 label="Password"
                                 component={InputFieldFF}
