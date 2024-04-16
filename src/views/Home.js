@@ -4,6 +4,6 @@ export const Home = () => (
     <div>
         <h1>Home</h1>
 
-        <p>DHIS2 Web App Academy 2024</p>
+        <p>This is Dhis2 web Acadamy</p>
     </div>
 )
