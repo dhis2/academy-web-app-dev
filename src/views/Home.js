@@ -10,7 +10,7 @@ export const Home = () => {
         <h1>{i18n.t('Home')}</h1>
 
         <p>{i18n.t('This is Dhis2 web Acadamy')}</p>
-        <Tag positive>Running on API version: {apiVersion}</Tag>
+        <Tag positive>{i18n.t('Running on API version: {{apiVersion}}',{apiVersion, nsSeparator:'~:~'})}</Tag>
     </div>  
     )
     }

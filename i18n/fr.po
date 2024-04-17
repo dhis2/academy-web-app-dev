@@ -13,3 +13,6 @@ msgstr "Maison"
 
 msgid "This is Dhis2 web Acadamy"
 msgstr "C'est Dhis2 web Acadamy" 
+
+msgid "Running on API version: {{apiVersion}}"
+msgstr "fonctionnant sur la version API: {{apiVersion}}"
