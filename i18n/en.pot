@@ -5,8 +5,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-17T09:23:05.587Z\n"
-"PO-Revision-Date: 2024-04-17T09:23:05.587Z\n"
+"POT-Creation-Date: 2024-04-17T11:02:09.401Z\n"
+"PO-Revision-Date: 2024-04-17T11:02:09.401Z\n"
 
 msgid "Home"
 msgstr "Home"
+
+msgid "DHIS2 Web App Academy 2024"
+msgstr "DHIS2 Web App Academy 2024"
+
+msgid "Running on DHIS2 API  version"
+msgstr "Running on DHIS2 API  version"

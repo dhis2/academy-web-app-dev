@@ -1,3 +1,4 @@
+import {useDataQuery} from '@dhis2/app-runtime'
 import {
     CenteredContent,
     CircularLoader,
@@ -10,12 +11,23 @@ import {
     DataTableHead,
     DataTableRow} from '@dhis2-ui/table'   
 import React from 'react'
-import { useGetAttributes } from '../hooks/index.js'
+//import { useGetAttributes } from '../hooks/index.js'
 
+//tested query in the playground
+const query= {
+    "attributesList": {
+        "resource": "attributes",
+        "params": {
+            "pageSize": 5,
+            "fields": ["displayName", "code", "unique"],
+            "order": "displayName:desc",
+        },
+    },
+}
 export const Attributes = () => {
     // we get the data using a custom hook
     // we will update this implementation after learning about app-runtime
-    const { loading, error, data } = useGetAttributes()
+    const { loading, error, data} = useDataQuery(query)
 
     if (loading) {
         return (
@@ -44,7 +56,7 @@ export const Attributes = () => {
                     </DataTableRow>
                 </DataTableHead>
                 <DataTableBody>
-                    {data.attributes.attributes.map(
+                    {data?.attributesList?.attributes.map(
                         ({id, displayName, unique}) => (
                             <DataTableRow key={id}>
                                 <DataTableCell>{displayName}</DataTableCell>
