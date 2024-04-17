@@ -21,7 +21,7 @@ function Table() {
                 header={headData.attributes}
             />
             <TableRow
-                rows={data.attributes.attributes}
+                rows={data.results.indicators}
             />
         </DataTable>
     )

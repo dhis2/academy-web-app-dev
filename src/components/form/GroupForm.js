@@ -12,13 +12,28 @@ import {
 } from '@dhis2/ui'
 import React from 'react'
 import styles from './Form.module.css'
-
-const alertValues = (values) => {
-    const formattedValuesString = JSON.stringify(values, null, 2)
-    alert(formattedValuesString)
-}
+import useAlerts from '../../hooks/useAlert'
 
 function GroupForm() {
+    const { hide, show } = useAlerts()
+
+    const alertValues = (values) => {
+        const formattedValuesString = JSON.stringify(values, null, 2)
+        // console.log(values, formattedValuesString);
+
+        show({
+            message: formattedValuesString,
+            type: { critical: true }
+        });
+
+    }
+
+    setTimeout(() => {
+        console.log('hide', hide)
+        hide();
+    }, 3000);
+
+
     return (
         <div className={styles.container} >
             <ReactFinalForm.Form onSubmit={alertValues}>
