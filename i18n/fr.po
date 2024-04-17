@@ -16,3 +16,21 @@ msgstr "C'est Dhis2 web Acadamy"
 
 msgid "Running on API version: {{apiVersion}}"
 msgstr "fonctionnant sur la version API: {{apiVersion}}"
+
+msgid "Add an attribute"
+msgstr "Ajouter un attribut"
+
+msgid "Attribute name"
+msgstr "Nom d'attribut"
+
+msgid "Value Type"
+msgstr "Type de valeur"
+
+msgid "Text"
+msgstr "Texte"
+
+msgid "Number"
+msgstr "Nombre"
+
+msgid "Save"
+msgstr "Sauvegarder"
