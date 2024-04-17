@@ -22,3 +22,12 @@
 .email {
     flex-grow: 1;
 }
+
+.half {
+    width: 50% !important;
+}
+
+.full {
+    width: 100% !important;
+    padding: 2px;
+}
