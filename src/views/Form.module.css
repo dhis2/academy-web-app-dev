@@ -19,6 +19,10 @@
     flex-grow: 1;
 }
 
+.username {
+    flex-grow: 1;
+}
+
 .email {
     flex-grow: 1;
 }
