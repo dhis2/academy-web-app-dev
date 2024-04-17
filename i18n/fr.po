@@ -14,3 +14,8 @@ msgid "API_VERSION"
 msgstr "Exécution sur la version API {{apiVersion}}"
 msgid "ATTR_INFO"
 msgstr "Attributs visibles par {{name}} ({{email}})"
+msgid "YES"
+msgstr "Oui"
+
+msgid "NO"
+msgstr "Non"

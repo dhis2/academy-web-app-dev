@@ -20,17 +20,21 @@ const query = {
         params: {
             order: 'displayName:desc',
             pageSize: PAGE_SIZE,
+            fields: ['displayName', 'unique', 'id']
         },
     },
     users: {
-        resource: 'me'
+        resource: 'me',
+        params: {
+            fields: ['name', 'email']
+        }
     }
 }
 
 export const Attributes = () => {
     // we get the data using a custom hook
     // we will update this implementation after learning about app-runtime
-    const { loading, error, data } = useDataQuery(query)
+    const {loading, error, data} = useDataQuery(query)
     if (loading) {
         return <CenteredContent>
             <CircularLoader/>
@@ -39,9 +43,9 @@ export const Attributes = () => {
     if (error) {
         return <NoticeBox error title="Error loading data">{error}</NoticeBox>
     }
-    console.log('Users', data?.users)
-    const name = data?.users?.name;
-    const email = data?.users?.email;
+    const user = data?.users;
+    const name = user?.name;
+    const email = user?.email;
 
     return (
         <div>
@@ -58,10 +62,11 @@ export const Attributes = () => {
                         </DataTableColumnHeader>
                     </TableHead>
                     <TableBody>
-                        {data.attributes.attributes.map((attr) => {
-                            return <DataTableRow key={attr.id}>
-                                <DataTableCell>{attr.displayName}</DataTableCell>
-                                <DataTableCell>{attr.unique ? 'Yes' : 'No'}</DataTableCell>
+                        {data.attributes.attributes.map((attribute) => {
+                            const {id, displayName, unique} = attribute;
+                            return <DataTableRow key={id}>
+                                <DataTableCell>{displayName}</DataTableCell>
+                                <DataTableCell>{unique ? i18n.t('YES') : i18n.t('NO')}</DataTableCell>
                             </DataTableRow>
                         })}
                     </TableBody>

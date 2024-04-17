@@ -5,13 +5,17 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-17T12:51:20.728Z\n"
-"PO-Revision-Date: 2024-04-17T12:51:20.729Z\n"
-
-msgctxt "INFO"
+"POT-Creation-Date: 2024-04-17T14:30:40.931Z\n"
+"PO-Revision-Date: 2024-04-17T14:30:40.931Z\n"
 
 msgid "ATTR_INFO"
 msgstr "Attributes visible to {{name}} ({{email}})"
+
+msgid "YES"
+msgstr "Yes"
+
+msgid "NO"
+msgstr "No"
 
 msgid "Home"
 msgstr "Home"
