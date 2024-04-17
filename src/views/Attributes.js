@@ -1,6 +1,7 @@
 import { useDataQuery } from '@dhis2/app-runtime'
 import { CircularLoader, CenteredContent, NoticeBox, Table, TableBody, TableCell, TableCellHead, TableHead, TableRow, TableRowHead } from '@dhis2/ui'
 import React from 'react'
+import AttributeCreateForm from './AttributeCreateForm'
 
 const query = {
     attributesList: {
@@ -60,6 +61,7 @@ export const Attributes = () => {
                     </Table>
                 )
             }
+            <AttributeCreateForm/>
         </div>
     )
 }
