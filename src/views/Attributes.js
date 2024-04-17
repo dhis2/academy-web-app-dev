@@ -1,11 +1,32 @@
-import { Table, TableBody, TableCell, TableCellHead, TableHead, TableRow, TableRowHead } from '@dhis2/ui'
+import { useDataQuery } from '@dhis2/app-runtime'
+import { CircularLoader, CenteredContent, NoticeBox, Table, TableBody, TableCell, TableCellHead, TableHead, TableRow, TableRowHead } from '@dhis2/ui'
 import React from 'react'
-import { useGetAttributes } from '../hooks/index.js'
+
+const query = {
+    attributesList: {
+        resource: 'attributes',
+        params: {
+            fields: ['displayName', 'code', 'unique'],
+            order: 'created:desc',
+        },
+    }
+}
 
 export const Attributes = () => {
     // we get the data using a custom hook
     // we will update this implementation after learning about app-runtime
-    const { loading, error, data } = useGetAttributes()
+    const { loading, error, data } = useDataQuery(query)
+    if (loading){
+        return(
+            <CenteredContent>
+                <CircularLoader />
+            </CenteredContent>
+        )
+    }
+    if (error){
+        return<NoticeBox error>{error?.message}</NoticeBox>
+    }
+    console.log(data)
 
     return (
         <div>
@@ -14,7 +35,7 @@ export const Attributes = () => {
             <p>error message: {error?.message}</p>
             {
                 // if there is any data available
-                data?.attributes?.attributes && (
+                data?.attributesList?.attributes && (
                     <Table>
                         <TableHead>
                             <TableRowHead>
@@ -23,7 +44,7 @@ export const Attributes = () => {
                             </TableRowHead>
                         </TableHead>
                         <TableBody>
-                        {data.attributes.attributes.map(
+                        {data.attributesList.attributes.map(
                             ({id, displayName, unique}) => (
                                 <TableRow key={id}>
                                     <TableCell>
