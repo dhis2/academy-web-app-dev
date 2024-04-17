@@ -1,6 +1,9 @@
-import { ReactFinalForm } from '@dhis2/ui'
+import { useAlert } from '@dhis2/app-runtime'
+import { InputFieldFF, ReactFinalForm, SingleSelectFieldFF, SwitchFieldFF, composeValidators, dhis2Password, hasValue, Button } from '@dhis2/ui'
 import React from 'react'
 import styles from './Form.module.css'
+
+
 
 /**
  * This is just a function to demonstrate the values when the form is submitted
@@ -15,31 +18,125 @@ import styles from './Form.module.css'
  * @param {string} values.email-confirmation
  * @param {bool} values.newsletter
  */
-const alertValues = (values) => {
-    const formattedValuesString = JSON.stringify(values, null, 2)
-    alert(formattedValuesString)
-}
+
 
 const { Field, Form: RFForm } = ReactFinalForm
 
-export const Form = () => (
-    <div>
-        <h1>Form</h1>
+export const Form = () => {
+    const {show} = useAlert((stringValues) => {
+        return 'All is Good' + stringValues
+    },
+    (values) => {
+        if(values.title === 'Professor'){
+            return{
+                critical: true,
+                }
+        }
+        return{
+            success: true,
+        }
+    })
 
-        <RFForm onSubmit={alertValues}>
-            {({ handleSubmit }) => (
-                <form onSubmit={handleSubmit}>
-                    <div className={styles.row}>
-                        <Field
-                            name="surname"
-                            label="Surname"
-                            component={'input'}
-                            className={styles.surname}
-                            initialValue={'Traore'}
-                        />
-                    </div>
-                </form>
-            )}
-        </RFForm>
-    </div>
-)
+    const alertValues = (values) => {
+        const formattedValuesString = JSON.stringify(values, null, 2)
+        show(formattedValuesString)
+        }
+
+    return (
+        <div>
+            <h1>Formulaire</h1>
+
+            <RFForm onSubmit={alertValues}>
+                {({ handleSubmit }) => (
+                    <form onSubmit={handleSubmit}>
+                        <div className={styles.row}>
+                            <Field
+                                name="title"
+                                label="Title"
+                                component={SingleSelectFieldFF}
+                                className={styles.title}
+                                initialValue="none"
+                                options={[
+                                    { label: 'None', value: 'none' },
+                                    { label: 'Professor', value: 'professor' },
+                                    { label: 'Doctor', value: 'doctor' },
+                                ]} />
+                        </div>
+                        <div className={styles.row}>
+                            <Field
+                                required
+                                name="surname"
+                                label="Surname"
+                                component={InputFieldFF}
+                                className={styles.surname}
+                                validate={hasValue} />
+                            <Field
+                                required
+                                name="firtname"
+                                label="First Name"
+                                component={InputFieldFF}
+                                className={styles.firtname}
+                                validate={hasValue} />
+                        </div>
+                        <div className={styles.row}>
+                            <Field
+                                required
+                                name="username"
+                                label="Username"
+                                component={InputFieldFF}
+                                className={styles.surname}
+                                validate={hasValue} />
+                        </div>
+                        <div className={styles.row}>
+                            <Field
+                                required
+                                name="password"
+                                label="Password"
+                                type='password'
+                                component={InputFieldFF}
+                                className={styles.surname}
+                                validate={composeValidators(
+                                    dhis2Password,
+                                    hasValue
+                                )} />
+                        </div>
+                        <div className={styles.row}>
+                            <Field
+                                required
+                                name="emailadress"
+                                label="E-mail adress"
+                                placeholder="example@domaine.com"
+                                component={InputFieldFF}
+                                className={styles.surname}
+                                validate={hasValue} />
+                        </div>
+                        <div className={styles.row}>
+                            <Field
+                                required
+                                name="emailadress"
+                                label="Confirm E-mail adress"
+                                component={InputFieldFF}
+                                className={styles.surname}
+                                validate={hasValue} />
+                        </div>
+                        <div className={styles.row}>
+                            <Field
+                                name="newsletter"
+                                type="checkbox"
+                                label="I want to receive newsletter"
+                                component={SwitchFieldFF}
+                                className={styles.surname}
+                                initialValue={false} />
+                        </div>
+                        <div className={styles.row}>
+                            <Button type="submit" primary>
+                                Submit Form
+                            </Button>
+                        </div>
+
+                    </form>
+                )}
+            </RFForm>
+        </div>
+    )
+}
