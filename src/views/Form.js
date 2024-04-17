@@ -1,20 +1,35 @@
-import {Button,InputFieldFF,SingleSelectFieldFF,SwitchFieldFF,composeValidators,createEqualTo,email,hasValue,dhis2Password,dhis2Username,ReactFinalForm} from '@dhis2/ui'
+import {Button,InputFieldFF,SingleSelectFieldFF,SwitchFieldFF,composeValidators,createEqualTo,email,hasValue,dhis2Password,dhis2Username,ReactFinalForm,AlertBar} from '@dhis2/ui'
 import React from 'react'
 import styles from './Form.module.css'
+import { useAlert } from '@dhis2/app-runtime'
 
 
-const alertValues = (values) => {
-    const formattedValuesString = JSON.stringify(values, null, 2)
-    alert(formattedValuesString)
-}
+
 
 const { Field, Form: RFForm } = ReactFinalForm
 
-export const Form = () => (
+export const Form = () => {
+    const {show}= useAlert(
+        ({values,error})=>{
+            if (error){
+                return `something went wrong: ${error}`
+            }
+            return `form successfully submitted: ${values}`
+        },
+        ({error})=>{
+            return error? {duration:3000,critical:true}: {duration:3000,success:true}
+        }
+
+    )
+    const onSubmit= (values) => {
+        show({
+            values: JSON.stringify(values, null, 2)})
+                }
+return(
     <div>
         <h1>Form</h1>
 
-        <RFForm onSubmit={alertValues}>
+        <RFForm onSubmit={onSubmit}>
             {({ handleSubmit }) => (
                 <form onSubmit={handleSubmit}>
                     <div className={styles.row}>
@@ -122,8 +137,9 @@ export const Form = () => (
                             Submit form
                         </Button>
                     </div>
-                </form>
+                                    </form>
             )}
         </RFForm>
     </div>
-)
+    )
+                            }
