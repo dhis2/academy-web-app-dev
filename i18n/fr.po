@@ -10,3 +10,5 @@ msgstr ""
 
 msgid "Home"
 msgstr "Maison"
+msgid "API_VERSION"
+msgstr "Exécution sur la version API {{apiVersion}}"
