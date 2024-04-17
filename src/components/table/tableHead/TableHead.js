@@ -8,7 +8,7 @@ function TableHeadC({ header }) {
                 {header && header.map(head => {
                     return (
                         <DataTableColumnHeader>
-                            {head.displayName}
+                            {head}
                         </DataTableColumnHeader>
                     )
                 })}

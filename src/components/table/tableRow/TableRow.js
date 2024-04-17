@@ -1,19 +1,19 @@
 import { DataTableCell, DataTableRow, TableBody } from '@dhis2/ui'
 import React from 'react'
 
-function TableRow({ rows = [] }) {
-    console.log(rows);
+function TableRow({ rows = [], header = [] }) {
     return (
         <TableBody>
             {rows.length > 0 && rows.map(row => {
                 return (
                     <DataTableRow>
-                        <DataTableCell>
-                            {row.displayName}
-                        </DataTableCell>
-                        <DataTableCell>
-                            {row.unique? "Yes" : "No" }
-                        </DataTableCell>
+                        {header.map(head =>
+                        (
+                            <DataTableCell>
+                                {row[head]}
+                            </DataTableCell>
+                        )
+                        )}
                     </DataTableRow>
                 )
             })}

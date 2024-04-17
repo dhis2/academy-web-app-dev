@@ -5,7 +5,8 @@ const INDICATORSQUERY = {
         resource: "indicators",
         params: {
             fields: ['displayName', 'code', 'unique'],
-            order: 'created:desc'
+            order: 'created:desc',
+            pageSize: 10
         }
 
     }

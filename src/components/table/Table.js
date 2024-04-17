@@ -1,27 +1,28 @@
 import React from 'react'
 import { useGetHeadAttributes } from '../../hooks/useGetHeadAttributes'
 import { useGetAttributes } from '../../hooks'
-import { CircularLoader, DataTable } from '@dhis2/ui'
+import { CircularLoader, DataTable, CenteredContent } from '@dhis2/ui'
 import TableHead from './tableHead/TableHead'
 import TableRow from './tableRow/TableRow'
 
-function Table() {
-    const { data: headData, loading: headLoading } = useGetHeadAttributes()
-    const { data, loading } = useGetAttributes()
+function Table({ data = [], loading }) {
 
-    if (loading || headLoading) {
+    if (loading) {
         return (
-            <CircularLoader />
+            <CenteredContent>
+                <CircularLoader />
+            </CenteredContent>
         )
     }
 
     return (
         <DataTable>
             <TableHead
-                header={headData.attributes}
+                header={data?.length > 0 && Object.keys(data[0])}
             />
             <TableRow
-                rows={data.results.indicators}
+                rows={data}
+                header={data?.length > 1 && Object.keys(data[0])}
             />
         </DataTable>
     )
