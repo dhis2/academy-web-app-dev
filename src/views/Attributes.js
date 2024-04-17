@@ -2,7 +2,8 @@ import React from 'react'
 import { useGetAttributes } from '../hooks/index.js'
 import { CircularLoader, CenteredContent, Table, DataTable, TableHead, TableCellHead, TableBody, TableRow, TableCell, } from '@dhis2/ui'
 import { useDataQuery } from '@dhis2/app-runtime'
-
+import AttributeCreateForm from './AttributeCreateForm.js'
+import { NoticeBox } from '@dhis2/ui'
 
 const query = {
 
@@ -11,9 +12,16 @@ const query = {
         params: {
             fields: ['code', 'displayName', 'unique', 'id'],
             order: 'displayName:desc',
-            pageSize: 5
+            // pageSize: 5
         }
     },
+    me: {
+        resource: "me",
+        params: {
+            fields: ["displayName"]
+            
+        }
+    }
 
 }
 export const Attributes = () => {
@@ -29,11 +37,11 @@ export const Attributes = () => {
     if (error) {
         return <NoticeBox error>{error?.message}</NoticeBox>
     }
-
+    
     return (
         <div>
             <h1>Attributes</h1>
-
+            
             {data?.attributes?.attributes && (
                 <Table>
                     <TableHead>
@@ -58,6 +66,7 @@ export const Attributes = () => {
                     </TableBody>
                 </Table>
             )}
+            <AttributeCreateForm/>
 
 
 

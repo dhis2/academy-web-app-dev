@@ -5,8 +5,26 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-17T09:54:15.648Z\n"
-"PO-Revision-Date: 2024-04-17T09:54:15.648Z\n"
+"POT-Creation-Date: 2024-04-17T14:57:07.004Z\n"
+"PO-Revision-Date: 2024-04-17T14:57:07.004Z\n"
+
+msgid "Add an attribute"
+msgstr "Add an attribute"
+
+msgid "Attribute name"
+msgstr "Attribute name"
+
+msgid "Value Type"
+msgstr "Value Type"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Number"
+msgstr "Number"
+
+msgid "Save"
+msgstr "Save"
 
 msgid "Home"
 msgstr "Home"
