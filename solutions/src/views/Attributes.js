@@ -67,7 +67,7 @@ export const Attributes = () => {
 
     return (
         <div>
-            <h1>{i18n.t('Attributes')}</h1>
+            <h1>{i18n.t('Attributes ssss')}</h1>
             <div className={styles.tableInfo}>
                 {i18n.t('Attributes visible to {{name}} ({{email}})', {
                     name: displayName,
