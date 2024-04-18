@@ -3,6 +3,9 @@ import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import styles from './App.module.css'
 import { Navigation } from './navigation/index.js'
 import { Form, Home, Attributes } from './views/index.js'
+import { AttributeForm } from './views/AttributeForm.js'
+import AttributeCreateForm from './views/CreateAttributeForm.js'
+
 
 const MyApp = () => (
     <HashRouter
@@ -42,6 +45,15 @@ const MyApp = () => (
                         path="/attributes"
                         element={<Attributes />}
                     />
+                    
+                    <Route
+                        // Attributes route, will render "Attributes" component
+                        // when "/attributes" is the current url
+                        exact
+                        path="/addattributes"
+                        element={<AttributeCreateForm />}
+                    />
+
                     <Route
                         // functions as default route, redirects to home
                         // when invalid path is provided
