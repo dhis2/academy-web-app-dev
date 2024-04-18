@@ -11,14 +11,14 @@ sidebar_position: 80
 :::
 
 ## Agenda
-| Time | Topic | |
-| --- | --- | --- |
-| 09:00 - 10:30 | Closing Workshop | _topic to be decided by participants_ |
-| 10:30 - 11:00 | _coffee break_ | |
-| 11:00 - 12:30 | Workshop | _topic to be decided by participants_ |
-| 12:30 - 13:30 | _lunch break_ | |
-| 13:30 - 15:00 | Common workshops | App Ecosystem, continuous learning, CoP, Developer Meetups|
-| 15:00 - 15:30 | _coffee break / closing_ | |
+| Time          | Topic                   |                                                |
+| ------------- | ----------------------- | ---------------------------------------------- |
+| 08:30 - 10:30 | Closing Workshop        | _topic to be decided by participants_          |
+| 10:30 - 11:00 | _coffee break_          |                                                |
+| 11:00 - 11:30 | Common Session          |                                                |
+| 11:30 - 12:30 | Certification & Closing | Everyone will get a participation certificate! |
+| 12:30 - 13:30 | _Lunch_                 |                                                |
+| 13:30         | End of day              |                                                |
 
 :::warning[Potential topics for Day 5]
 The topics for day 5 will be chosen by academy participants based on interest. Some potential topics are:
@@ -36,7 +36,9 @@ _Topic to be decided_
 ## Morning workshop 2 (TBD)
 _Topic to be decided_
 
-## Afternoon common sessions
+## Common Closing session
+
+Will be an interactive session where the following topics will be discussed.
 
 ### App Ecosystem
 
