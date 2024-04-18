@@ -1,11 +1,9 @@
 import React from 'react'
-import { useGetHeadAttributes } from '../../hooks/useGetHeadAttributes'
-import { useGetAttributes } from '../../hooks'
-import { CircularLoader, DataTable, CenteredContent } from '@dhis2/ui'
-import TableHead from './tableHead/TableHead'
-import TableRow from './tableRow/TableRow'
+import { CircularLoader, DataTable, CenteredContent, DataTableRow, DataTableCell, DataTableColumnHeader, TableHead, TableBody } from '@dhis2/ui'
+
 
 function Table({ data = [], loading }) {
+    const header = data?.length > 0 && Object.keys(data[0])
 
     if (loading) {
         return (
@@ -17,13 +15,32 @@ function Table({ data = [], loading }) {
 
     return (
         <DataTable>
-            <TableHead
-                header={data?.length > 0 && Object.keys(data[0])}
-            />
-            <TableRow
-                rows={data}
-                header={data?.length > 1 && Object.keys(data[0])}
-            />
+            <TableHead>
+                <DataTableRow>
+                    {header && header.map(head => {
+                        return (
+                            <DataTableColumnHeader>
+                                {head}
+                            </DataTableColumnHeader>
+                        )
+                    })}
+                </DataTableRow>
+            </TableHead>
+            <TableBody>
+                {data.length > 0 && data.map(row => {
+                    return (
+                        <DataTableRow>
+                            {header.map(head =>
+                            (
+                                <DataTableCell>
+                                    {row[head]}
+                                </DataTableCell>
+                            )
+                            )}
+                        </DataTableRow>
+                    )
+                })}
+            </TableBody>
         </DataTable>
     )
 }
