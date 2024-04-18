@@ -13,3 +13,6 @@ msgstr "Accueil"
 
 msgid "WelcomeMessage"
 msgstr "Académie des applications Web DHIS2 2024 (Roger)"
+
+msgid "Running on API Version"
+msgstr "Exécuté sur la version de l'API"
