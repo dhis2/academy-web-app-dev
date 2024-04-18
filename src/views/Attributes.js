@@ -1,24 +1,128 @@
+import { useDataMutation, useDataQuery } from '@dhis2/app-runtime'
+import i18n from '@dhis2/d2-i18n'
+import {
+    Button,
+    CenteredContent,
+    CircularLoader,
+    NoticeBox,
+    Table,
+    TableBody,
+    TableCell,
+    TableCellHead,
+    TableHead,
+    TableRow,
+    TableRowHead,
+} from '@dhis2/ui'
 import React from 'react'
-import { useGetAttributes } from '../hooks/index.js'
+import AttributeCreateForm from './AttributeCreateForm.js'
+
+
+
+const query = {
+    myUserInfo: {
+        resource: 'me',
+        params: {
+            fields: ['displayName', 'email'],
+        },
+    },
+    attributes: {
+        resource: 'attributes',
+        params: { 
+            order: 'created:desc',
+            fields: ['displayName', 'code', 'id', 'unique', 'valueType'],
+            pageSize: 5,
+        },
+    },
+}
+
+const deleteMutation = {
+    resource: 'attributes',
+    type: 'delete',
+    id: ({ id }) => id,
+}
 
 export const Attributes = () => {
-    // we get the data using a custom hook
-    // we will update this implementation after learning about app-runtime
-    const { loading, error, data } = useGetAttributes()
+    const { loading, error, data, refetch } = useDataQuery(query)
+    console.log(data);
+    const [deleteAttribute] = useDataMutation(deleteMutation)
+
+    if (loading) {
+        return (
+            <CenteredContent>
+                <CircularLoader />
+            </CenteredContent>
+        )
+    }
+
+    if (error) {
+        return <NoticeBox error>{error?.message}</NoticeBox>
+    }
+
+    const {
+        myUserInfo: { displayName, email },
+    } = data
+
+    const onDeleteAttributeMutation = async (mutationId) => {
+        await deleteAttribute({ id: mutationId })
+        refetch()
+    }
 
     return (
         <div>
-            <h1>Attributes</h1>
-            <p>loading: {JSON.stringify(loading)}</p>
-            <p>error message: {error?.message}</p>
+            <h1>{i18n.t('Attributes')}</h1>
+            <div>
+                {i18n.t('Attributes visible to {{name}} ({{email}})', {
+                    name: displayName,
+                    email,
+                })}
+            </div>
             {
-                // if there is any data available
+                
                 data?.attributes?.attributes && (
-                    <pre>
-                        {JSON.stringify(data.attributes.attributes, null, 4)}
-                    </pre>
+                    <Table>
+                        <TableHead>
+                            <TableRowHead>
+                                <TableCellHead>{i18n.t('Name')}</TableCellHead>
+                                <TableCellHead>
+                                    {i18n.t('Unique')}
+                                </TableCellHead>
+                                <TableCellHead>
+                                    {i18n.t('Value Type')}
+                                </TableCellHead>
+                                <TableCellHead>Delete?</TableCellHead>
+                            </TableRowHead>
+                        </TableHead>
+                        <TableBody>
+                            {data.attributes.attributes.map(
+                                ({ id, displayName, unique, valueType }) => (
+                                    <TableRow key={id}>
+                                        <TableCell>{displayName}</TableCell>
+                                        <TableCell>
+                                            {unique
+                                                ? i18n.t('Yes')
+                                                : i18n.t('No')}
+                                        </TableCell>
+                                        <TableCell>{valueType}</TableCell>
+                                        <TableCell>
+                                            <Button
+                                                small
+                                                destructive
+                                                disabled={loading}
+                                                onClick={() =>
+                                                    onDeleteAttributeMutation(id)
+                                                }
+                                            >
+                                                Delete
+                                            </Button>
+                                        </TableCell>
+                                    </TableRow>
+                                )
+                            )}
+                        </TableBody>
+                    </Table>
                 )
             }
+            <AttributeCreateForm />
         </div>
     )
 }

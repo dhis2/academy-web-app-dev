@@ -2,7 +2,9 @@ import React from 'react'
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom'
 import styles from './App.module.css'
 import { Navigation } from './navigation/index.js'
-import { Form, Home, Attributes } from './views/index.js'
+import {  Home, Form, Attributes } from './views/index.js'
+import './locales/index.js'
+
 
 const MyApp = () => (
     <HashRouter
