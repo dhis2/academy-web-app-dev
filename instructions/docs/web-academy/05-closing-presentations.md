@@ -40,11 +40,6 @@ _Topic to be decided_
 
 Will be an interactive session where the following topics will be discussed.
 
-### App Ecosystem
-
-How will you distribute your app after you’re done? Diving in both the App Hub and Android Distribution. It can be important for both android and web academy participants to know about the other distribution platform.
-
-
 ### How to keep learning
 Now that the basics are covered, how do you keep learning? We’re going to be looking at where documentation is hosted, and how to learn from other people’s code (GitHub) among other things. Developer Portal will be discussed during this presentation as well.
 
