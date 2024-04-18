@@ -13,6 +13,8 @@ import {
 } from '@dhis2/ui'
 import React from 'react'
 import styles from './Form.module.css'
+import { AlertBar } from '@dhis2-ui/alert'
+import { useAlert } from '@dhis2/app-runtime'
 
 /**
  * This is just a function to demonstrate the values when the form is submitted
@@ -34,7 +36,19 @@ const alertValues = (values) => {
 
 const { Field, Form: RFForm } = ReactFinalForm
 
-export const Form = () => (
+export const Form = () => {
+    
+    const{ show } = useAlert((values) => {
+         return 'All is Good' + JSON.stringify(values,null,2)
+    })
+
+
+    
+    const alertValues = (values) => {show(values)}
+
+
+
+    return (
     <div>
         <h1>Form</h1>
 
@@ -150,4 +164,4 @@ export const Form = () => (
             )}
         </RFForm>
     </div>
-)
+)}
