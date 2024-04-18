@@ -68,6 +68,7 @@ const sleep = (ms) => {
 
 export const useGetAttributes = () => {
     const [loading, setLoading] = useState(true)
+    // const error = new Error('something went wrong')
     const error = null
     const data = ATTRIBUTES
 

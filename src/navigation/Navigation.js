@@ -1,5 +1,7 @@
+import { Menu, MenuItem } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+
 // @TODO: Import the `Menu` and `MenuItem` components
 import { useNavigate, useMatch } from 'react-router-dom'
 
@@ -17,7 +19,7 @@ const NavigationItem = ({ path, label }) => {
     const onClick = () => navigate(path)
 
     // @TODO: Use the `MenuItem` component instead of the `div`
-    return <div>{label}</div>
+    return <MenuItem label={label} active={isActive} onClick={onClick} />
 }
 
 NavigationItem.propTypes = {
