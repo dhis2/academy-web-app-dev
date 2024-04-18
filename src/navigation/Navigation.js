@@ -44,6 +44,12 @@ export const Navigation = () => (
         />
 
         <NavigationItem
+            // Menu item for the meta data page
+            label="Create Attributes"
+            path="/addattributes"
+        />
+
+        <NavigationItem
             // Menu item for the Form page
             label="Form"
             path="/form"
