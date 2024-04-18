@@ -5,20 +5,48 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-17T14:30:40.931Z\n"
-"PO-Revision-Date: 2024-04-17T14:30:40.931Z\n"
-
-msgid "ATTR_INFO"
-msgstr "Attributes visible to {{name}} ({{email}})"
-
-msgid "YES"
-msgstr "Yes"
-
-msgid "NO"
-msgstr "No"
+"POT-Creation-Date: 2024-04-17T09:33:24.538Z\n"
+"PO-Revision-Date: 2024-04-17T09:33:24.538Z\n"
 
 msgid "Home"
-msgstr "Home"
-
+msgstr "Maison"
 msgid "API_VERSION"
-msgstr "Running on API Version {{apiVersion}}"
+msgstr "Exécution sur la version API {{apiVersion}}"
+msgid "ATTR_INFO"
+msgstr "Attributs visibles par {{name}} ({{email}})"
+msgid "YES"
+msgstr "Oui"
+
+msgid "NO"
+msgstr "Non"
+
+msgid "ADD_ATTRIBUTE"
+msgstr "Ajouter un attribut"
+
+msgid "ATTR_TYPE"
+msgstr "Type de valeur"
+
+msgid "ATTR_NAME"
+msgstr "Nom d'attribut"
+
+msgid "ATTR_NAME_SHORT"
+msgstr "Nom"
+
+msgid "ATTR_UNIQUE"
+msgstr "Unique"
+
+msgid "ATTR_TYPE_TEXT"
+msgstr "Texte"
+
+msgid "ATTR_TYPE_NUMBER"
+msgstr "Nombre"
+
+msgid "ATTR_CREATED"
+msgstr "Un attribut avec l'ID {{ID}} a été créé"
+
+msgid "SAVE"
+msgstr "Sauvegarder"
+
+msgid "ATTR_ACTIONS"
+msgstr "Actions"
+

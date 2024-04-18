@@ -19,3 +19,34 @@ msgstr "Oui"
 
 msgid "NO"
 msgstr "Non"
+
+msgid "ADD_ATTRIBUTE"
+msgstr "Ajouter un attribut"
+
+msgid "ATTR_TYPE"
+msgstr "Type de valeur"
+
+msgid "ATTR_NAME"
+msgstr "Nom d'attribut"
+
+msgid "ATTR_NAME_SHORT"
+msgstr "Nom"
+
+msgid "ATTR_UNIQUE"
+msgstr "Unique"
+
+msgid "ATTR_TYPE_TEXT"
+msgstr "Texte"
+
+msgid "ATTR_TYPE_NUMBER"
+msgstr "Nombre"
+
+msgid "ATTR_CREATED"
+msgstr "Un attribut avec l'ID {{ID}} a été créé"
+
+msgid "SAVE"
+msgstr "Sauvegarder"
+
+msgid "ATTR_ACTIONS"
+msgstr "Actions"
+
