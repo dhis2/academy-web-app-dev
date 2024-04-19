@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-08T17:04:59.684Z\n"
-"PO-Revision-Date: 2024-04-08T17:04:59.684Z\n"
+"POT-Creation-Date: 2024-04-19T08:40:55.716Z\n"
+"PO-Revision-Date: 2024-04-19T08:40:55.716Z\n"
 
 msgid "Home"
 msgstr "Home"
@@ -16,6 +16,30 @@ msgstr "Attributes"
 
 msgid "Form"
 msgstr "Form"
+
+msgid "Add an attribute"
+msgstr "Add an attribute"
+
+msgid "Attribute name"
+msgstr "Attribute name"
+
+msgid "Value Type"
+msgstr "Value Type"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "Number"
+msgstr "Number"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Attributes ssss"
+msgstr "Attributes ssss"
+
+msgid "Attributes visible to {{name}} ({{email}})"
+msgstr "Attributes visible to {{name}} ({{email}})"
 
 msgid "Name"
 msgstr "Name"
@@ -67,3 +91,6 @@ msgstr "Submit form"
 
 msgid "DHIS2 Web App Academy 2024"
 msgstr "DHIS2 Web App Academy 2024"
+
+msgid "Running on API version {{version}}"
+msgstr "Running on API version {{version}}"

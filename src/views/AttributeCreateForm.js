@@ -41,10 +41,7 @@ const AttributeCreateForm = () => {
             }),
         onError: (error) => show({ error }),
     }
-    const [mutate, { called, loading, error, data, refetch }] = useDataMutation(
-        mutation,
-        options
-    )
+    const [mutate] = useDataMutation(mutation, options)
 
     const onSubmit = async (values) => {
         await mutate(values)
