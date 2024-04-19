@@ -30,11 +30,10 @@ The topics for day 5 will be chosen by academy participants based on interest. S
 - Quality for apps: overview and open discussion of testing, CI/CD, process etc..
 :::
 
-## Morning workshop 1 (TBD)
-_Topic to be decided_
+## Morning workshop 1 (Plugins)
+<iframe src="https://docs.google.com/presentation/d/1qiavdy7NChURIwAebSuDxJsOD9cHDhDIunR9n7vhYkY/embed?start=false&loop=false&delayms=3000" frameborder="0" width="100%" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-## Morning workshop 2 (TBD)
-_Topic to be decided_
+## Morning workshop 2 (API Routes)
 
 ## Common Closing session
 
