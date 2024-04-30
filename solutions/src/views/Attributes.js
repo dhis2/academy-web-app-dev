@@ -12,6 +12,8 @@ import {
     TableHead,
     TableRow,
     TableRowHead,
+    TableFoot,
+    Pagination,
 } from '@dhis2/ui'
 import React from 'react'
 import AttributeCreateForm from './AttributeCreateForm.js'
@@ -26,11 +28,13 @@ const query = {
     },
     attributes: {
         resource: 'attributes',
-        params: {
+        params: ({ page = 1, pageSize = 5 }) => ({
             order: 'created:desc',
-            fields: ['displayName', 'code', 'id', 'unique', 'valueType'],
-            pageSize: 5,
-        },
+            fields: 'displayName,valueType,unique,id',
+            paging: true,
+            pageSize,
+            page,
+        }),
     },
 }
 
@@ -117,6 +121,21 @@ export const Attributes = () => {
                                 )
                             )}
                         </TableBody>
+                        <TableFoot>
+                            <TableRow>
+                                <TableCell colSpan="100%">
+                                    <Pagination
+                                        onPageSizeChange={(pageSize) => {
+                                            refetch({ pageSize })
+                                        }}
+                                        onPageChange={(page) => {
+                                            refetch({ page })
+                                        }}
+                                        {...data?.attributes?.pager}
+                                    />
+                                </TableCell>
+                            </TableRow>
+                        </TableFoot>
                     </Table>
                 )
             }
