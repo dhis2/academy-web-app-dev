@@ -1,4 +1,4 @@
-import { useDataQuery, useDataMutation } from '@dhis2/app-runtime'
+import { useDataQuery, useDataMutation, useAlert } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -88,7 +88,16 @@ const StudentList = () => {
     const [deleteMutation] = useDataMutation(DELETE_MUTATION, {
         onComplete: refetch,
     })
-    const [sharingMutation] = useUpdateSharing() // @TODO: you need to implement a custom hook returning a mutation
+
+    const { show: sharingAlert } = useAlert(
+        ({ success }) =>
+            success
+                ? i18n.t('Sharing successfully updated')
+                : i18n.t('Something went wrong when updating sharing'),
+        ({ success }) => (success ? { success: true } : { critical: true })
+    )
+
+    const [sharingMutation] = useUpdateSharing({ sharingAlert })
 
     const [addModalOpen, setAddModalOpen] = useState(false)
     const [updateParticipantDetails, setUpdateParticipantDetails] =

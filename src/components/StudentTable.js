@@ -63,7 +63,11 @@ const StudentTable = ({
                                 <Button
                                     small
                                     secondary
-                                    onClick={sharingMutation}
+                                    onClick={() => {
+                                        sharingMutation({
+                                            key: participant.key,
+                                        })
+                                    }}
                                 >
                                     {i18n.t('Set to read only')}
                                 </Button>
