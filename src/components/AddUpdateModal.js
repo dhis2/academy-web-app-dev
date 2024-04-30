@@ -53,7 +53,6 @@ export const AddUpdateModal = ({
             show({ error })
         },
         onComplete: (data) => {
-            console.log(data)
             show({ data })
         },
     })
