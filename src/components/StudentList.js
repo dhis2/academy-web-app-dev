@@ -22,6 +22,7 @@ const DATASTORE_OVERVIEW = {
         resource: `dataStore/${DATASTORE_NAME}`,
         params: {
             fields: '.',
+            filter: 'name:ilike:o',
         },
     },
 }
