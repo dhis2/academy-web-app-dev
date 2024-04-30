@@ -1,4 +1,4 @@
-import { useDataQuery } from '@dhis2/app-runtime'
+import { useDataQuery, useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -30,8 +30,11 @@ const DATASTORE_OVERVIEW = {
     },
 }
 
-// eslint-disable-next-line no-unused-vars
-const DELETE_MUTATION = {}
+const DELETE_MUTATION = {
+    resource: `dataStore/${DATASTORE_NAME}`,
+    type: 'delete',
+    id: ({ id }) => id,
+}
 
 const FilterSelection = ({ refetch }) => {
     // use format {parameter: 'parameter to filter', value: 'value of filter'}
@@ -82,7 +85,9 @@ const StudentList = () => {
         DATASTORE_OVERVIEW,
         { lazy: true }
     )
-    const deleteMutation = () => {} // @TODO: replace with something like  `const [deleteMutation] = useDataMutation(DELETE_MUTATION)`
+    const [deleteMutation] = useDataMutation(DELETE_MUTATION, {
+        onComplete: refetch,
+    })
     const [sharingMutation] = useUpdateSharing() // @TODO: you need to implement a custom hook returning a mutation
 
     const [addModalOpen, setAddModalOpen] = useState(false)

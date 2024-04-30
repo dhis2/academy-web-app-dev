@@ -45,7 +45,9 @@ const StudentTable = ({
                                     small
                                     destructive
                                     secondary
-                                    onClick={deleteMutation}
+                                    onClick={() => {
+                                        deleteMutation({ id: participant.key })
+                                    }}
                                 >
                                     {i18n.t('Delete')}
                                 </Button>
