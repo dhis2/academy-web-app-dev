@@ -230,6 +230,11 @@ A paginator should be added to the bottom of the table and its initial values sh
 
 ![Pagination functionality](../assets/appruntime-workshop/task-pagination.png)
 
+#### Solutions
+
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/286c873d06be20b20b6b354d30d7a1ed92d77dd6). Note that most of the properties required by the `<Pagination>` component are returned by the `pager` property returned by the api response.
+:::
 
 ### Task 4.2 - Show Attribute details
 :::info[Requirements]
@@ -237,12 +242,24 @@ A paginator should be added to the bottom of the table and its initial values sh
 - You can just dump the JSON returned for now (or design in a nice UI if you prefer).
 :::
 
+#### Solutions
+
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/a1c622a35548f476b5801351b7ba52f50e1f6730). The solution here outputs the data in JSON format. 
+:::
+
 ### Task 4.3 - (Bonus) Update Attribute
 
 :::info[Requirement]
 This application supports **creating** and **deleting** attributes, but it doesn't support **renaming** them.  This is your task:
 
-Add an `Rename` button to each row in `Attributes.js`.  This Edit button should open a `Dialog` component (from `@dhis2/ui`) which contains a form.  That form should allow the user to type a new name for the selected Attribute.  When submitted, the form should use a Data Mutation to send a POST request updating the visualization's name.  The dialog should then disappear and the table of visualizations should refresh to show the updated name.
+Add an `Update` button to each row in `Attributes.js`.  This Edit button should open a `Modal` component (from `@dhis2/ui`) which contains a form.  That form should allow the user to type a new name for the selected Attribute.  When submitted, the form should use a Data Mutation to send a POST request updating the visualization's name.  The modal should then disappear and the table of visualizations should refresh to show the updated name.
+:::
+
+#### Solutions
+
+:::note[Solution]
+Look at this [commit](https://github.com/dhis2/academy-web-app-dev/commit/389e125d55dfe9ea2c32b521d92988492c4bb13a). Most of the logic for the new update and modal can be found in the UpdateModal.js file.
 :::
 
 ## Resources
