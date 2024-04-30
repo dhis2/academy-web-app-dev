@@ -2,6 +2,7 @@ import { useDataMutation, useDataQuery } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
+    ButtonStrip,
     CenteredContent,
     CircularLoader,
     NoticeBox,
@@ -44,9 +45,20 @@ const deleteMutation = {
     id: ({ id }) => id,
 }
 
+const attributesDetails = {
+    details: {
+        resource: 'attributes',
+        id: ({ id }) => id,
+    },
+}
+
 export const Attributes = () => {
     const { loading, error, data, refetch } = useDataQuery(query)
     const [deleteAttribute] = useDataMutation(deleteMutation)
+    const { data: attributesData, refetch: fetchDetails } = useDataQuery(
+        attributesDetails,
+        { lazy: true }
+    )
 
     if (loading) {
         return (
@@ -91,7 +103,9 @@ export const Attributes = () => {
                                 <TableCellHead>
                                     {i18n.t('Value Type')}
                                 </TableCellHead>
-                                <TableCellHead>Delete?</TableCellHead>
+                                <TableCellHead>
+                                    {i18n.t('Actions')}
+                                </TableCellHead>
                             </TableRowHead>
                         </TableHead>
                         <TableBody>
@@ -106,16 +120,26 @@ export const Attributes = () => {
                                         </TableCell>
                                         <TableCell>{valueType}</TableCell>
                                         <TableCell>
-                                            <Button
-                                                small
-                                                destructive
-                                                disabled={loading}
-                                                onClick={() =>
-                                                    onDeleteAttribute(id)
-                                                }
-                                            >
-                                                Delete
-                                            </Button>
+                                            <ButtonStrip>
+                                                <Button
+                                                    small
+                                                    destructive
+                                                    disabled={loading}
+                                                    onClick={() =>
+                                                        onDeleteAttribute(id)
+                                                    }
+                                                >
+                                                    Delete
+                                                </Button>
+                                                <Button
+                                                    small
+                                                    onClick={() => {
+                                                        fetchDetails({ id })
+                                                    }}
+                                                >
+                                                    {i18n.t('Details')}
+                                                </Button>
+                                            </ButtonStrip>
                                         </TableCell>
                                     </TableRow>
                                 )
@@ -139,6 +163,9 @@ export const Attributes = () => {
                     </Table>
                 )
             }
+            <div>
+                <pre>{JSON.stringify(attributesData?.details, null, 4)}</pre>
+            </div>
             <AttributeCreateForm />
         </div>
     )

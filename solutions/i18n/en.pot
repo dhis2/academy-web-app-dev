@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-30T08:12:20.562Z\n"
-"PO-Revision-Date: 2024-04-30T08:12:20.562Z\n"
+"POT-Creation-Date: 2024-04-30T12:34:55.701Z\n"
+"PO-Revision-Date: 2024-04-30T12:34:55.701Z\n"
 
 msgid "Home"
 msgstr "Home"
@@ -44,11 +44,17 @@ msgstr "Name"
 msgid "Unique"
 msgstr "Unique"
 
+msgid "Actions"
+msgstr "Actions"
+
 msgid "Yes"
 msgstr "Yes"
 
 msgid "No"
 msgstr "No"
+
+msgid "Details"
+msgstr "Details"
 
 msgid "Title"
 msgstr "Title"
