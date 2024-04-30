@@ -20,10 +20,10 @@ import StudentTable from './StudentTable.js'
 const DATASTORE_OVERVIEW = {
     dataStore: {
         resource: `dataStore/${DATASTORE_NAME}`,
-        params: {
+        params: (filter) => ({
             fields: '.',
-            filter: 'name:ilike:o',
-        },
+            filter: `${filter?.parameter}:ilike:${filter?.value}`,
+        }),
     },
 }
 
@@ -31,13 +31,16 @@ const DATASTORE_OVERVIEW = {
 const DELETE_MUTATION = {}
 
 const FilterSelection = ({ refetch }) => {
-    // const [filter, setFilter] = useState(null)
+    // use format {parameter: 'parameter to filter', value: 'value of filter'}
+    const [filter, setFilter] = useState(null)
     return (
         <div className={styles.filterSelect}>
             <SingleSelect
                 prefix={'Filter option'}
-                selected="country"
-                onChange={() => {}}
+                selected={filter?.parameter}
+                onChange={({ selected }) => {
+                    setFilter({ parameter: selected })
+                }}
             >
                 <SingleSelectOption
                     label={i18n.t('Country of residence')}
@@ -46,8 +49,21 @@ const FilterSelection = ({ refetch }) => {
                 />
                 <SingleSelectOption label={i18n.t('Name')} value="name" />
             </SingleSelect>
-            <InputField value="o" className={styles.filterField}></InputField>
-            <Button primary onClick={refetch}>
+            <InputField
+                value={filter?.value}
+                className={styles.filterField}
+                onChange={({ value }) => {
+                    setFilter((prev) => {
+                        return { ...prev, value: value }
+                    })
+                }}
+            ></InputField>
+            <Button
+                primary
+                onClick={() => {
+                    refetch(filter)
+                }}
+            >
                 {i18n.t('Search for participants')}
             </Button>
         </div>
