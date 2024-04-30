@@ -1,4 +1,4 @@
-import { useAlert, useDataMutation } from '@dhis2/app-runtime'
+import { useAlert, useDataMutation, useConfig } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -28,11 +28,24 @@ const ADD_MUTATION = {
     }),
 }
 
+const PARTIAL_UPDATE_MUTATION = {
+    resource: `dataStore/${DATASTORE_NAME}`,
+    type: 'update',
+    id: (values) => values.key,
+    params: {
+        path: 'daysAttended',
+    },
+    data: (values) => values.daysAttended.split(',').map((day) => day.trim()),
+}
+
 export const AddUpdateModal = ({
     open,
     closeAddUpdateModal,
     updateParticipantDetails,
 }) => {
+    const { apiVersion } = useConfig()
+    const isPartialUpdateAllowed = apiVersion >= 41
+
     const { show } = useAlert(
         ({ data, error }) => {
             if (error) {
@@ -41,7 +54,7 @@ export const AddUpdateModal = ({
                     error,
                 })
             }
-            return i18n.t('Success. {{-message}}', { message: data?.message })
+            return i18n.t('Success. {{-message}}', { message: data.message })
         },
         ({ error }) => {
             return error ? { critical: true } : { success: true }
@@ -56,8 +69,29 @@ export const AddUpdateModal = ({
             show({ data })
         },
     })
+
     const addParticipant = async (values) => {
         await addParticipantMutation({
+            ...values,
+            key: updateParticipantDetails?.key,
+        })
+        closeAddUpdateModal()
+    }
+
+    const [updateParticipantMutation] = useDataMutation(
+        PARTIAL_UPDATE_MUTATION,
+        {
+            onError: (error) => {
+                show({ error })
+            },
+            onComplete: (data) => {
+                show({ data })
+            },
+        }
+    )
+
+    const updateParticipant = async (values) => {
+        await updateParticipantMutation({
             ...values,
             key: updateParticipantDetails?.key,
         })
@@ -67,7 +101,13 @@ export const AddUpdateModal = ({
     return (
         <Modal hide={!open} onClose={closeAddUpdateModal}>
             <>
-                <RFForm onSubmit={addParticipant}>
+                <RFForm
+                    onSubmit={
+                        updateParticipantDetails && isPartialUpdateAllowed
+                            ? updateParticipant
+                            : addParticipant
+                    }
+                >
                     {({ handleSubmit }) => (
                         <form onSubmit={handleSubmit}>
                             <ModalTitle>
@@ -78,34 +118,41 @@ export const AddUpdateModal = ({
                                     : i18n.t('Add participant')}
                             </ModalTitle>
                             <ModalContent>
-                                <Field
-                                    required
-                                    name="name"
-                                    label={i18n.t('Name')}
-                                    component={InputFieldFF}
-                                    validate={hasValue}
-                                    className={styles.row}
-                                    initialValue={
-                                        updateParticipantDetails
-                                            ? updateParticipantDetails?.value
-                                                  ?.name
-                                            : null
-                                    }
-                                />
-                                <Field
-                                    required
-                                    name="country"
-                                    label={i18n.t('Country of residence')}
-                                    component={InputFieldFF}
-                                    validate={hasValue}
-                                    className={styles.row}
-                                    initialValue={
-                                        updateParticipantDetails
-                                            ? updateParticipantDetails?.value
-                                                  ?.country
-                                            : null
-                                    }
-                                />
+                                {(!updateParticipantDetails ||
+                                    !isPartialUpdateAllowed) && (
+                                    <>
+                                        <Field
+                                            required
+                                            name="name"
+                                            label={i18n.t('Name')}
+                                            component={InputFieldFF}
+                                            validate={hasValue}
+                                            className={styles.row}
+                                            initialValue={
+                                                updateParticipantDetails
+                                                    ? updateParticipantDetails
+                                                          ?.value?.name
+                                                    : null
+                                            }
+                                        />
+                                        <Field
+                                            required
+                                            name="country"
+                                            label={i18n.t(
+                                                'Country of residence'
+                                            )}
+                                            component={InputFieldFF}
+                                            validate={hasValue}
+                                            className={styles.row}
+                                            initialValue={
+                                                updateParticipantDetails
+                                                    ? updateParticipantDetails
+                                                          ?.value?.country
+                                                    : null
+                                            }
+                                        />
+                                    </>
+                                )}
                                 <Field
                                     required
                                     name="daysAttended"
