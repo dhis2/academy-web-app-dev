@@ -21,7 +21,7 @@ const { Field, Form: RFForm } = ReactFinalForm
 const ADD_MUTATION = {
     resource: `dataStore/${DATASTORE_NAME}`,
     type: 'update',
-    id: (values) => values.name,
+    id: (values) => values.key ?? values.name,
     data: (values) => ({
         ...values,
         daysAttended: values.daysAttended.split(',').map((day) => day.trim()),
@@ -57,21 +57,17 @@ export const AddUpdateModal = ({
         },
     })
     const addParticipant = async (values) => {
-        await addParticipantMutation(values)
+        await addParticipantMutation({
+            ...values,
+            key: updateParticipantDetails?.key,
+        })
         closeAddUpdateModal()
     }
-    const updateParticipant = () => {}
 
     return (
         <Modal hide={!open} onClose={closeAddUpdateModal}>
             <>
-                <RFForm
-                    onSubmit={
-                        updateParticipantDetails
-                            ? updateParticipant
-                            : addParticipant
-                    }
-                >
+                <RFForm onSubmit={addParticipant}>
                     {({ handleSubmit }) => (
                         <form onSubmit={handleSubmit}>
                             <ModalTitle>
