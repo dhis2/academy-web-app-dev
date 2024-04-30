@@ -37,7 +37,7 @@ const StudentTable = ({
                         <TableCell>{participant.value.name}</TableCell>
                         <TableCell>{participant.value.country}</TableCell>
                         <TableCell>
-                            {participant.value.daysAttended.join(', ')}
+                            {participant?.value?.daysAttended?.join(', ')}
                         </TableCell>
                         <TableCell>
                             <ButtonStrip>
