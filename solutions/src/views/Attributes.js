@@ -16,9 +16,10 @@ import {
     TableFoot,
     Pagination,
 } from '@dhis2/ui'
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import AttributeCreateForm from './AttributeCreateForm.js'
 import styles from './Attributes.module.css'
+import UpdateModal from './UpdateModal.js'
 
 const query = {
     myUserInfo: {
@@ -59,6 +60,10 @@ export const Attributes = () => {
         attributesDetails,
         { lazy: true }
     )
+    const [modalDetails, setModalDetails] = useState(null)
+    const closeModal = useCallback(() => {
+        setModalDetails(null)
+    })
 
     if (loading) {
         return (
@@ -83,6 +88,15 @@ export const Attributes = () => {
 
     return (
         <div>
+            <>
+                {modalDetails !== null && (
+                    <UpdateModal
+                        closeModal={closeModal}
+                        {...modalDetails}
+                        refetch={refetch}
+                    />
+                )}
+            </>
             <h1>{i18n.t('Attributes')}</h1>
             <div className={styles.tableInfo}>
                 {i18n.t('Attributes visible to {{name}} ({{email}})', {
@@ -138,6 +152,17 @@ export const Attributes = () => {
                                                     }}
                                                 >
                                                     {i18n.t('Details')}
+                                                </Button>
+                                                <Button
+                                                    small
+                                                    onClick={() => {
+                                                        setModalDetails({
+                                                            id,
+                                                            name: displayName,
+                                                        })
+                                                    }}
+                                                >
+                                                    {i18n.t('Update')}
                                                 </Button>
                                             </ButtonStrip>
                                         </TableCell>

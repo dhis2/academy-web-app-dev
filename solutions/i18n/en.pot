@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-30T12:34:55.701Z\n"
-"PO-Revision-Date: 2024-04-30T12:34:55.701Z\n"
+"POT-Creation-Date: 2024-04-30T12:43:19.360Z\n"
+"PO-Revision-Date: 2024-04-30T12:43:19.360Z\n"
 
 msgid "Home"
 msgstr "Home"
@@ -56,6 +56,9 @@ msgstr "No"
 msgid "Details"
 msgstr "Details"
 
+msgid "Update"
+msgstr "Update"
+
 msgid "Title"
 msgstr "Title"
 
@@ -97,3 +100,12 @@ msgstr "DHIS2 Web App Academy 2024"
 
 msgid "Running on API version {{version}}"
 msgstr "Running on API version {{version}}"
+
+msgid "Update name for {{name}}"
+msgstr "Update name for {{name}}"
+
+msgid "New name"
+msgstr "New name"
+
+msgid "Cancel"
+msgstr "Cancel"
