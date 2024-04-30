@@ -20,10 +20,13 @@ import StudentTable from './StudentTable.js'
 const DATASTORE_OVERVIEW = {
     dataStore: {
         resource: `dataStore/${DATASTORE_NAME}`,
-        params: (filter) => ({
-            fields: '.',
-            filter: `${filter?.parameter}:ilike:${filter?.value}`,
-        }),
+        params: (filter) =>
+            filter?.value
+                ? {
+                      fields: '.',
+                      filter: `${filter?.parameter}:ilike:${filter?.value}`,
+                  }
+                : { fields: '.' },
     },
 }
 
