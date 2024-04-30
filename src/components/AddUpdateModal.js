@@ -13,12 +13,13 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { DATASTORE_NAME } from '../constants.js'
 import styles from './AddUpdateModal.module.css'
 
 const { Field, Form: RFForm } = ReactFinalForm
 
 const ADD_MUTATION = {
-    resource: `dataStore/academyParticipants`,
+    resource: `dataStore/${DATASTORE_NAME}`,
     type: 'update',
     id: (values) => values.name,
     data: (values) => ({
