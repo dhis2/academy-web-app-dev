@@ -1,3 +1,4 @@
+import { useAlert, useDataMutation } from '@dhis2/app-runtime'
 import i18n from '@dhis2/d2-i18n'
 import {
     Button,
@@ -12,16 +13,53 @@ import {
 } from '@dhis2/ui'
 import PropTypes from 'prop-types'
 import React from 'react'
+import { DATASTORE_NAME } from '../constants.js'
 import styles from './AddUpdateModal.module.css'
 
 const { Field, Form: RFForm } = ReactFinalForm
+
+const ADD_MUTATION = {
+    resource: `dataStore/${DATASTORE_NAME}`,
+    type: 'update',
+    id: (values) => values.name,
+    data: (values) => ({
+        ...values,
+        daysAttended: values.daysAttended.split(',').map((day) => day.trim()),
+    }),
+}
 
 export const AddUpdateModal = ({
     open,
     closeAddUpdateModal,
     updateParticipantDetails,
 }) => {
-    const addParticipant = () => {}
+    const { show } = useAlert(
+        ({ data, error }) => {
+            if (error) {
+                return i18n.t('Something went wrong: {{error}}', {
+                    nsSeparator: '~:~',
+                    error,
+                })
+            }
+            return i18n.t('Success. {{-message}}', { message: data?.message })
+        },
+        ({ error }) => {
+            return error ? { critical: true } : { success: true }
+        }
+    )
+
+    const [addParticipantMutation] = useDataMutation(ADD_MUTATION, {
+        onError: (error) => {
+            show({ error })
+        },
+        onComplete: (data) => {
+            show({ data })
+        },
+    })
+    const addParticipant = async (values) => {
+        await addParticipantMutation(values)
+        closeAddUpdateModal()
+    }
     const updateParticipant = () => {}
 
     return (
@@ -93,7 +131,9 @@ export const AddUpdateModal = ({
                                     <Button onClick={closeAddUpdateModal}>
                                         {i18n.t('Cancel')}
                                     </Button>
-                                    <Button primary>{i18n.t('Add')}</Button>
+                                    <Button primary type="submit">
+                                        {i18n.t('Add')}
+                                    </Button>
                                 </ButtonStrip>
                             </ModalActions>
                         </form>
