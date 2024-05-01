@@ -187,6 +187,8 @@ You need to create a deleteMutation in StudentList.js using useDataMutation.
 Handle success / errors with alerts defined using `useShowAlerts`
 :::
 
+### Solutions
+
 :::note[Solution]
 Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/70553a72b0287bc4490a48406095c0b7be5c66ec). The bonus task of showing alerts is not implemented, but the UX should be fairly clear in case of success as the participant will be removed from the results.
 :::
@@ -202,6 +204,8 @@ You will update the updaeParticipant in AddUpdateModal.js to use a mutation defi
 :::note[Bonus]
 Handle success / errors with alerts defined using `useShowAlerts`
 :::
+
+### Solutions
 
 :::note[Solution]
 Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/e43a2d4c4d846cfa3df7fcac1ef3905f033f860c). Since we used a mutation of `type:'update'`, we can reuse it for the update operation. Note that, the query id has been updated to be based on an existing participant key if one exists, so that a new participant will not be added if the name is modified.
@@ -229,6 +233,8 @@ You need the data store ID to update the sharing. You can get this at `api/dataS
 Look at the [sharing api](https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-240/sharing.html) to see how to update sharing. Public sharing needs to be changed from `rw------` to `r-------`
 :::
 
+### Solutions
+
 :::note[Solution]
 Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/3d3143155f8d477d87de1ed76016f9e3b431a176).
 :::
@@ -246,6 +252,8 @@ Change the definition of the namespace in constants.js (e.g. you can update to `
 
 Your app should check (e.g. in App.js) if the namespace exists. If it does not exist, it should create the namespace, so that the user can proceed and add new users.
 
+### Solutions
+
 :::note[Solution]
 Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/2fba60308fba9bf92efaf30a0ed9252808e39b71). Note that you need to add a key to a datstore namespace when you create one. Here, Rene is added as the first participant upon the creation of the data store.
 :::
@@ -259,6 +267,8 @@ Modify update modal to allow for partial updates (v41+)
 As of v41, you can now do partial updates (update a property within a key); see [data store partial updates documentation](https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-master/data-store.html#partial-update-experimental).
 
 You can change the update UI to be different for v41+. For v41+, you can allow user to select an individual property, and then use a partial update mutation to modify the value (if there is a change).
+
+### Solutions
 
 :::note[Solution]
 Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/5f754fd98e5de5d472a8025506c3cd02264047b9). To illustrate the possibilities of feature toggling, this solution changes the implementation slightly to allow v41+ instances to only update days attended. You could implement this in different ways (e.g. implement patch updates for fields that have changed) depending on what you want to accomplish.
