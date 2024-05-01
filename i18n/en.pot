@@ -5,8 +5,8 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"POT-Creation-Date: 2024-04-30T16:08:42.304Z\n"
-"PO-Revision-Date: 2024-04-30T16:08:42.304Z\n"
+"POT-Creation-Date: 2024-05-01T06:44:12.776Z\n"
+"PO-Revision-Date: 2024-05-01T06:44:12.776Z\n"
 
 msgid "Something went wrong: {{error}}"
 msgstr "Something went wrong: {{error}}"
@@ -34,6 +34,12 @@ msgstr "Add"
 
 msgid "Search for participants"
 msgstr "Search for participants"
+
+msgid "Sharing successfully updated"
+msgstr "Sharing successfully updated"
+
+msgid "Something went wrong when updating sharing"
+msgstr "Something went wrong when updating sharing"
 
 msgid "Roster"
 msgstr "Roster"

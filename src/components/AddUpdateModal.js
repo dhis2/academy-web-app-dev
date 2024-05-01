@@ -41,7 +41,7 @@ export const AddUpdateModal = ({
                     error,
                 })
             }
-            return i18n.t('Success. {{-message}}', { message: data?.message })
+            return i18n.t('Success. {{-message}}', { message: data.message })
         },
         ({ error }) => {
             return error ? { critical: true } : { success: true }
