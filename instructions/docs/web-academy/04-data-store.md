@@ -109,6 +109,12 @@ const DATASTORE_OVERVIEW = {
 }
 ```
 
+### Solutions
+
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/040276a0eb5d6be725646e32c73b5731c389834a). The first task only requires that you implement the hardcoded filter that is preopulated.
+:::
+
 ## Task 2 - Implement filter UI
 
 :::info[Requirement]
@@ -124,6 +130,12 @@ For example:
 ```
 params: (filterSelections) => filterSelections ? ({...paramsWithFilter}) : ({...paramsWithoutFilters})
 ```
+
+### Solutions
+
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/f566c343fbd4334014fec442b8e63ca7070e8a74). The implementation of a persisted filter relies on keeping the filter details in a state variable (filter); you can learn more about [useState in the react documentation](https://react.dev/reference/react/useState).
+:::
 
 ## Task 3 - Create a mutation to add a new participant
 
@@ -156,6 +168,12 @@ The daysAttended field is currently entered as a string in the modal. The data s
 Handle success / errors with alerts defined using `useShowAlerts`
 :::
 
+### Solutions
+
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/6fe12f92da68760c38420a75bb6e91e5594f5fce). Normally, for add mutations, we would use `type: 'create'`, but for the data store, it is possible (and easier in terms of how to write the query), to use update.
+:::
+
 
 ## Task 4 - Create a mutation to delete a participant
 
@@ -169,6 +187,10 @@ You need to create a deleteMutation in StudentList.js using useDataMutation.
 Handle success / errors with alerts defined using `useShowAlerts`
 :::
 
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/70553a72b0287bc4490a48406095c0b7be5c66ec). The bonus task of showing alerts is not implemented, but the UX should be fairly clear in case of success as the participant will be removed from the results.
+:::
+
 ## Task 5 - Create a mutation to update a participant
 
 :::info[Requirement]
@@ -179,6 +201,10 @@ You will update the updaeParticipant in AddUpdateModal.js to use a mutation defi
 
 :::note[Bonus]
 Handle success / errors with alerts defined using `useShowAlerts`
+:::
+
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/e43a2d4c4d846cfa3df7fcac1ef3905f033f860c). Since we used a mutation of `type:'update'`, we can reuse it for the update operation. Note that, the query id has been updated to be based on an existing participant key if one exists, so that a new participant will not be added if the name is modified.
 :::
 
 ## Task 6 - Restrict sharing for participant
@@ -203,6 +229,10 @@ You need the data store ID to update the sharing. You can get this at `api/dataS
 Look at the [sharing api](https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-240/sharing.html) to see how to update sharing. Public sharing needs to be changed from `rw------` to `r-------`
 :::
 
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/3d3143155f8d477d87de1ed76016f9e3b431a176).
+:::
+
 
 ## Task 7 - Handle undefined data store endpoint
 
@@ -216,6 +246,10 @@ Change the definition of the namespace in constants.js (e.g. you can update to `
 
 Your app should check (e.g. in App.js) if the namespace exists. If it does not exist, it should create the namespace, so that the user can proceed and add new users.
 
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/2fba60308fba9bf92efaf30a0ed9252808e39b71). Note that you need to add a key to a datstore namespace when you create one. Here, Rene is added as the first participant upon the creation of the data store.
+:::
+
 ## Task 8 - Implement feature toggling
 
 :::info[Requirement]
@@ -226,6 +260,9 @@ As of v41, you can now do partial updates (update a property within a key); see 
 
 You can change the update UI to be different for v41+. For v41+, you can allow user to select an individual property, and then use a partial update mutation to modify the value (if there is a change).
 
+:::note[Solution]
+Look at [this commit](https://github.com/dhis2/academy-web-app-dev/commit/5f754fd98e5de5d472a8025506c3cd02264047b9). To illustrate the possibilities of feature toggling, this solution changes the implementation slightly to allow v41+ instances to only update days attended. You could implement this in different ways (e.g. implement patch updates for fields that have changed) depending on what you want to accomplish.
+:::
 
 ## Resources
 
